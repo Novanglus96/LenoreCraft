@@ -1,0 +1,35 @@
+Django (Backend)
+    * Make sure Python/Pip/Django are installed
+        * sudo apt install python3 python3-pip python3-venv -y
+        * Setup Virtual Environment
+            * python3 -m venv myenv
+            * source myenv/bin/activate
+        * Install Django
+            * pip install django
+    * Setup project
+        * Activate Virtual Environment
+            * source myenv/bin/activate
+        * django-admin startproject myproject
+    * Setup Apps
+        * Activate Virtual Environment
+            * source myenv/bin/activate
+        * make sure you are in project directory
+        * python manage.py startapp app
+    * Deactivate venv
+        * deactivate
+VUE (Frontend)
+    * Install Node.js and NPM
+    * Setup vue project
+        * npm create vue@latest
+    * cd Frontend
+    * npm install
+ENV Files
+    * rename example_env
+        * .env
+    * rename example_env_db
+        * .env.db
+    * rename example_env_dev
+        * .env.dev
+    * rename example_env_dev_db
+        * .env.dev.db
+    * Configure env files with actual data

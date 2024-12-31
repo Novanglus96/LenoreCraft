@@ -1,0 +1,67 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: ./frontend
+    networks:
+      - default
+    restart: unless-stopped
+    expose:
+      - 80
+    image: template_frontend:production
+    container_name: template_frontend
+    env_file:
+      - ./.env
+    environment:
+      - TIMEZONE=America/New_York
+      - TZ=${TIMEZONE}
+  backend:
+    build:
+      context: ./backend
+    command: /home/app/web/start.sh
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
+      - postgres_bkp:/backups/
+    expose:
+      - 8000
+    depends_on:
+      - db
+    networks:
+      - default
+    env_file:
+      - ./.env
+    image: template_backend:production
+    container_name: template_backend
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env.db
+    networks:
+      - default
+    container_name: template_db
+    environment:
+      - TZ=UTC
+  nginx:
+    image: registry.danielleandjohn.love/django_vue_proxy:latest
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - default
+    ports:
+      - 7000:80
+    container_name: template_proxy
+    environment:
+      - TZ=${TIMEZONE}
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
+  postgres_bkp:

@@ -1,0 +1,16 @@
+DEBUG=1
+SECRET_KEY=somekey
+DJANGO_ALLOWED_HOSTS=
+CSRF_TRUSTED_ORIGINS=
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=template
+SQL_USER=templateuser
+SQL_PASSWORD=somepassword
+SQL_HOST=db
+SQL_PORT=5432
+DATABASE=postgres
+DJANGO_SUPERUSER_PASSWORD=somepassword
+DJANGO_SUPERUSER_EMAIL=someone@somewhere.com
+DJANGO_SUPERUSER_USERNAME=superuser
+API_KEY=somekey
+TIMEZONE=America/New_York

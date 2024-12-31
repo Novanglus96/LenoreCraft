@@ -1,0 +1,59 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    networks:
+      - default
+    restart: unless-stopped
+    ports:
+      - 8081:5173
+    image: template_frontend:development
+    container_name: template_frontend_dev
+    volumes:
+      - ./frontend:/app
+    environment:
+      - NODE_ENV=development
+      - TZ=${TIMEZONE}
+    command: /bin/sh -c "npm run serve"
+    env_file:
+      - ./.env.dev
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    command: /usr/src/app/start.dev.sh
+    env_file:
+      - ./.env.dev
+    volumes:
+      - ./backend:/usr/src/app
+      - ./backups:/backups
+    environment:
+      - DEBUG=1
+    ports:
+      - 8001:8001
+    depends_on:
+      - db
+    networks:
+      - default
+    image: template_backend:development
+    container_name: template_backend_dev
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env.dev.db
+    networks:
+      - default
+    container_name: template_db_dev
+    environment:
+      - TZ=UTC
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
+  postgres_bkp:
