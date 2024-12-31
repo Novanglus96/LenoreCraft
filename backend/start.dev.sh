@@ -13,4 +13,6 @@ if [ "$DJANGO_SUPERUSER_USERNAME" ]; then
         true
 fi
 
+python manage.py loaddata administration/fixtures/version
+
 python manage.py runserver 0.0.0.0:8001

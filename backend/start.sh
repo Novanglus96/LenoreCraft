@@ -13,4 +13,6 @@ if [ "$DJANGO_SUPERUSER_USERNAME" ]; then
         true
 fi
 
+python manage.py loaddata administration/fixtures/version
+
 gunicorn backend.wsgi:application --bind 0.0.0.0:8000
