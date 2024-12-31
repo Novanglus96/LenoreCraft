@@ -33,3 +33,10 @@ ENV Files
     * rename example_env_dev_db
         * .env.dev.db
     * Configure env files with actual data
+Change App Name
+    * change container names in docker-compose files
+    * Modify publish.sh
+        * app_name_prefix="appname"
+Modify README
+Modify ver_change script
+    * remove/modify entries
