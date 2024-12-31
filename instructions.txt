@@ -37,6 +37,10 @@ Change App Name
     * change container names in docker-compose files
     * Modify publish.sh
         * app_name_prefix="appname"
+    * Modify frontend/index.html
+        * <title>App Name</title>
+    * Modify vite.config.js
+        * title: "AppName"
 Modify README
 Modify ver_change script
     * remove/modify entries

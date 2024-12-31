@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { createHtmlPlugin } from 'vite-plugin-html'
-import vueDevTools from 'vite-plugin-vue-devtools'
-import { fileURLToPath, URL } from 'node:url'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import { createHtmlPlugin } from "vite-plugin-html";
+import vueDevTools from "vite-plugin-vue-devtools";
+import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
   plugins: [
@@ -11,17 +11,17 @@ export default defineConfig({
     createHtmlPlugin({
       inject: {
         data: {
-          title: 'Template',
+          title: "LenoreCraft",
         },
       },
     }),
   ],
   server: {
     proxy: {
-      '/api': {
-        target: 'https://back-dev.danielleandjohn.love/api', // Backend API server
+      "/api": {
+        target: "https://back-dev.danielleandjohn.love/api", // Backend API server
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        rewrite: path => path.replace(/^\/api/, ""),
       },
     },
   },
@@ -32,7 +32,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
-})
+});
