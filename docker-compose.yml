@@ -10,8 +10,8 @@ services:
     restart: unless-stopped
     ports:
       - 8081:5173
-    image: template_frontend:development
-    container_name: template_frontend_dev
+    image: craft_frontend:development
+    container_name: craft_frontend_dev
     volumes:
       - ./frontend:/app
     environment:
@@ -38,8 +38,8 @@ services:
       - db
     networks:
       - default
-    image: template_backend:development
-    container_name: template_backend_dev
+    image: craft_backend:development
+    container_name: craft_backend_dev
   db:
     image: postgres:15
     volumes:
@@ -48,7 +48,7 @@ services:
       - ./.env.dev.db
     networks:
       - default
-    container_name: template_db_dev
+    container_name: craft_db_dev
     environment:
       - TZ=UTC
 

@@ -8,7 +8,7 @@ fi
 
 # Assign command-line arguments to variables
 version_num="$1"
-app_name_prefix="template"
+app_name_prefix="lenorecraft"
 backend_suffix="_backend"
 frontend_suffix="_frontend"
 worker_suffix="_worker"

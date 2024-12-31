@@ -8,8 +8,8 @@ services:
     restart: unless-stopped
     expose:
       - 80
-    image: template_frontend:production
-    container_name: template_frontend
+    image: craft_frontend:production
+    container_name: craft_frontend
     env_file:
       - ./.env
     environment:
@@ -31,8 +31,8 @@ services:
       - default
     env_file:
       - ./.env
-    image: template_backend:production
-    container_name: template_backend
+    image: craft_backend:production
+    container_name: craft_backend
   db:
     image: postgres:15
     volumes:
@@ -41,7 +41,7 @@ services:
       - ./.env.db
     networks:
       - default
-    container_name: template_db
+    container_name: craft_db
     environment:
       - TZ=UTC
   nginx:
@@ -56,7 +56,7 @@ services:
       - default
     ports:
       - 7000:80
-    container_name: template_proxy
+    container_name: craft_proxy
     environment:
       - TZ=${TIMEZONE}
 
