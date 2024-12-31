@@ -1,4 +1,0 @@
-POSTGRES_USER=templateuser
-POSTGRES_PASSWORD=somepassword
-POSTGRES_DB=template
-TIMEZONE=America/New_York
