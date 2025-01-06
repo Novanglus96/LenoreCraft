@@ -25,7 +25,7 @@ from administration.api.routers.version import version_router
 
 api = NinjaAPI(auth=GlobalAuth())
 api.title = "LenoreCraft API"
-api.version = "0.0.0"
+api.version = "0.0.1"
 api.description = "API documentation for LenoreCraft"
 
 # Add routers to the API

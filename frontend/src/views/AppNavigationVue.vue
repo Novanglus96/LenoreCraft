@@ -22,7 +22,7 @@
       </template>
       <v-app-bar-title>
         <span class="text-caption font-weight-bold"
-          >v0.0.0</span
+          >v0.0.1</span
         ></v-app-bar-title
       >
     </v-app-bar>
