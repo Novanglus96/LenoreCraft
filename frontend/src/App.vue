@@ -1,85 +1,86 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <v-app>
+    <VueQueryDevtools />
+    <AppNavigationVue />
+    <v-main>
+      <v-container class="bg-primary h-100" fluid>
+        <router-view />
+      </v-container>
+      <v-snackbar
+        v-model="mainstore.snackbar"
+        :color="mainstore.snackbarColor"
+        :timeout="mainstore.snackbarTimeout"
+        content-class="centered-text"
+      >
+        {{ mainstore.snackbarText }}
+      </v-snackbar>
+      <v-snackbar
+        v-model="showBanner"
+        color="secondary"
+        location="top"
+        timeout="-1"
+        :multi-line="true"
+      >
+        There's been an update to the application. Click refresh to get the new
+        changes!
+        <template v-slot:actions>
+          <v-btn color="primary" variant="text" @click="showBanner = false">
+            Close
+          </v-btn>
+          <v-btn color="primary" variant="text" @click="reloadPage"
+            >Refresh</v-btn
+          >
+        </template>
+      </v-snackbar>
+    </v-main>
+  </v-app>
 </template>
+<script setup>
+import AppNavigationVue from "./views/AppNavigationVue.vue";
+import { useMainStore } from "@/stores/main";
+import { onMounted, computed, ref, watch, onUnmounted } from "vue";
+import { useVersion } from "@/composables/versionComposable";
+import { VueQueryDevtools } from "@tanstack/vue-query-devtools";
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+const reloadPage = () => {
+  window.location.reload();
+};
+const mainstore = useMainStore();
+const { prefetchVersion, version } = useVersion();
+const showBanner = ref(false);
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+const checkVersion = computed(() => {
+  return version.value && version.value.version_number !== "0.0.0";
+});
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
+const updateBanner = () => {
+  showBanner.value = checkVersion.value;
+};
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
+onMounted(() => {
+  prefetchVersion();
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
+  // Check version initially
+  updateBanner();
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
+  const handleVisibilityChange = () => {
+    if (!document.hidden) {
+      prefetchVersion().then(() => {
+        updateBanner();
+      });
+    }
+  };
 
-nav a:first-of-type {
-  border: 0;
-}
+  document.addEventListener("visibilitychange", handleVisibilityChange);
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+  // Clean up the event listener when the component is unmounted
+  onUnmounted(() => {
+    document.removeEventListener("visibilitychange", handleVisibilityChange);
+  });
+});
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+// Watch for changes in the computed property
+watch(checkVersion, newValue => {
+  showBanner.value = newValue;
+});
+</script>
