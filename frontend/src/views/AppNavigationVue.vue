@@ -1,72 +1,43 @@
 <template>
-  <div>
-    <v-app-bar color="primary" density="compact">
-      <template v-slot:prepend>
-        <v-menu v-if="isMobile" width="200">
-          <template v-slot:activator="{ props }">
-            <v-app-bar-nav-icon v-bind="props"></v-app-bar-nav-icon>
-          </template>
-          <v-list>
-            <v-list-item
-              v-for="(item, index) in menu_items"
-              :key="index"
-              :prepend-icon="item.icon"
-              :base-color="item.basecolor"
-              :color="item.color"
-              :to="item.to"
-              :title="item.title"
-            ></v-list-item>
-          </v-list>
-        </v-menu>
-        <v-img :width="132" aspect-ratio="1/1" cover src="/logov2.png"></v-img>
-      </template>
-      <v-app-bar-title>
-        <span class="text-caption font-weight-bold"
-          >v0.0.1</span
-        ></v-app-bar-title
-      >
-    </v-app-bar>
-    <v-navigation-drawer color="secondary" rail permanent v-if="mdAndUp">
-      <v-list density="compact" nav>
-        <v-tooltip
-          v-for="(item, index) in menu_items"
-          :key="index"
-          :text="item.tooltip"
-        >
-          <template v-slot:activator="{ props }">
-            <v-list-item
-              class="hover-theme"
-              :prepend-icon="item.icon"
-              v-bind="props"
-              :to="item.to"
-              :base-color="item.basecolor"
-              :color="item.color"
-            ></v-list-item>
-          </template>
-        </v-tooltip>
-        <v-tooltip text="Settings">
-          <template v-slot:activator="{ props }">
-            <v-list-item
-              class="hover-theme"
-              prepend-icon="mdi-hammer-screwdriver"
-              as="a"
-              href="/admin"
-              v-bind="props"
-              base-color="primary"
-              color="accent-darken-1"
-            ></v-list-item>
-          </template>
-        </v-tooltip>
-      </v-list>
-    </v-navigation-drawer>
-  </div>
+  <v-app-bar color="primary" density="compact">
+    <template v-slot:prepend>
+      <v-menu width="200">
+        <template v-slot:activator="{ props }">
+          <v-app-bar-nav-icon v-bind="props"></v-app-bar-nav-icon>
+        </template>
+        <v-list>
+          <v-list-item
+            v-for="(item, index) in menu_items"
+            class="hover-theme"
+            :key="index"
+            :prepend-icon="item.icon"
+            :base-color="item.basecolor"
+            :color="item.color"
+            :to="item.to"
+            :title="item.title"
+          ></v-list-item>
+          <v-list-item
+            class="hover-theme"
+            prepend-icon="mdi-hammer-screwdriver"
+            as="a"
+            href="/admin"
+            v-bind="props"
+            base-color="primary"
+            color="accent-darken-1"
+            title="Settings"
+          ></v-list-item>
+        </v-list>
+      </v-menu>
+      <v-img :width="132" aspect-ratio="1/1" cover src="/logov2.png"></v-img>
+    </template>
+    <v-app-bar-title>
+      <span class="text-caption font-weight-bold">v0.0.1</span></v-app-bar-title
+    >
+  </v-app-bar>
 </template>
 <script setup>
 import { ref } from "vue";
-import { useDisplay } from "vuetify";
 
-const { mdAndUp, smAndDown } = useDisplay();
-const isMobile = smAndDown;
 const menu_items = ref([
   {
     icon: "mdi-toolbox",

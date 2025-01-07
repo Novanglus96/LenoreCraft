@@ -17,6 +17,7 @@ const myCustomLightTheme = {
     info: "#795548",
     success: "#4caf50",
     selected: "#7fb17f",
+    background: "transparent",
   },
 };
 
