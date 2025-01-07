@@ -1,12 +1,36 @@
 import { createRouter, createWebHistory } from "vue-router";
 import DashBoard from "../views/DashBoardView.vue";
 import FourView from "../views/FourView.vue";
+import TasksView from "@/views/TasksView.vue";
+import ShoppingView from "@/views/ShoppingView.vue";
+import ProjectsView from "@/views/ProjectsView.vue";
+import ToolsView from "@/views/ToolsView.vue";
 
 const routes = [
   {
     path: "/",
     name: "dashboard",
     component: DashBoard,
+  },
+  {
+    path: "/tasks",
+    name: "tasks",
+    component: TasksView,
+  },
+  {
+    path: "/shopping",
+    name: "shopping",
+    component: ShoppingView,
+  },
+  {
+    path: "/projects",
+    name: "projects",
+    component: ProjectsView,
+  },
+  {
+    path: "/tools",
+    name: "tools",
+    component: ToolsView,
   },
   {
     path: "/:catchAll(.*)",

@@ -1,40 +1,41 @@
 <template>
   <v-app>
-    <div class="background-image"></div>
     <AppNavigationVue />
     <VueQueryDevtools />
-    <v-main>
-      <v-container>
-        <router-view />
-      </v-container>
-    </v-main>
+    <div class="background-image">
+      <v-main>
+        <v-container class="h-100" fluid>
+          <router-view />
+        </v-container>
+      </v-main>
 
-    <v-snackbar
-      v-model="mainstore.snackbar"
-      :color="mainstore.snackbarColor"
-      :timeout="mainstore.snackbarTimeout"
-      content-class="centered-text"
-    >
-      {{ mainstore.snackbarText }}
-    </v-snackbar>
-    <v-snackbar
-      v-model="showBanner"
-      color="secondary"
-      location="top"
-      timeout="-1"
-      :multi-line="true"
-    >
-      There's been an update to the application. Click refresh to get the new
-      changes!
-      <template v-slot:actions>
-        <v-btn color="primary" variant="text" @click="showBanner = false">
-          Close
-        </v-btn>
-        <v-btn color="primary" variant="text" @click="reloadPage"
-          >Refresh</v-btn
-        >
-      </template>
-    </v-snackbar>
+      <v-snackbar
+        v-model="mainstore.snackbar"
+        :color="mainstore.snackbarColor"
+        :timeout="mainstore.snackbarTimeout"
+        content-class="centered-text"
+      >
+        {{ mainstore.snackbarText }}
+      </v-snackbar>
+      <v-snackbar
+        v-model="showBanner"
+        color="secondary"
+        location="top"
+        timeout="-1"
+        :multi-line="true"
+      >
+        There's been an update to the application. Click refresh to get the new
+        changes!
+        <template v-slot:actions>
+          <v-btn color="primary" variant="text" @click="showBanner = false">
+            Close
+          </v-btn>
+          <v-btn color="primary" variant="text" @click="reloadPage"
+            >Refresh</v-btn
+          >
+        </template>
+      </v-snackbar>
+    </div>
   </v-app>
 </template>
 

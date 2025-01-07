@@ -71,6 +71,14 @@ const menu_items = ref([
     title: "Projects",
     tooltip: "Projects",
   },
+  {
+    icon: "mdi-tape-measure",
+    color: "accent-darken-1",
+    basecolor: "primary",
+    to: "/tools",
+    title: "Tools",
+    tooltip: "Tools",
+  },
 ]);
 </script>
 <style>
