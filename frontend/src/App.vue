@@ -98,7 +98,6 @@ watch(checkVersion, newValue => {
   background-image: url("@/assets/background.jpg"); /* Replace with your image path */
   background-size: cover;
   background-position: center;
-  z-index: -1; /* Ensure the background is behind the content */
 }
 
 .v-application {
