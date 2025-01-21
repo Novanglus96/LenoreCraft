@@ -1,12 +1,15 @@
 <template>
   <div>
-    <v-row class="pa-2 ga-2">
-      <v-col class="rounded text-center"><TaskList :dash="true" /></v-col>
-      <v-col class="rounded text-center"
-        ><ShoppingList :dash="true" /></v-col></v-row
-    ><v-row class="pa-2 ga-2">
+    <v-row class="pa-2 ga-2 d-flex">
       <v-col class="rounded text-center"><ProjectList :dash="true" /></v-col>
     </v-row>
+    <v-row class="pa-2 ga-2 d-flex">
+      <v-col class="rounded text-center" cols="12" sm=""
+        ><TaskList :dash="true"
+      /></v-col>
+      <v-col class="rounded text-center" cols="12" sm=""
+        ><ShoppingList :dash="true" /></v-col></v-row
+    >
   </div>
 </template>
 
