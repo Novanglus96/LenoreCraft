@@ -14,7 +14,7 @@
           :items-length="tasks.length"
           :loading="isLoading"
           item-value="id"
-          items-per-page="5"
+          items-per-page="4"
           color="primary"
           hover
           class="blackboard"
@@ -185,32 +185,6 @@ const tasks = ref([
       status: "Completed",
     },
     task_name: "Test task #4",
-    start_date: "2025-01-01",
-    due_date: "2025-01-01",
-    completed_date: null,
-    project: {
-      id: 1,
-      project_name: "Growth Board",
-      project_status: {
-        id: 1,
-        status: "In Progress",
-      },
-      project_image: "image.jpg",
-      start_date: "2023-06-25",
-      due_date: "2023-07-09",
-      completed_date: null,
-      depth_in: 0.75,
-      width_in: 24,
-      height_in: 68,
-    },
-  },
-  {
-    id: 5,
-    task_status: {
-      id: 5,
-      status: "Cancelled",
-    },
-    task_name: "Test task #5",
     start_date: "2025-01-01",
     due_date: "2025-01-01",
     completed_date: null,

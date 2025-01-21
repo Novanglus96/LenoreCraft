@@ -8,8 +8,7 @@ const apiClient = axios.create({
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
-    Authorization:
-      "Bearer rkuxHBK9L0CuwhZafXIJYSBIABvxpwYsUABVdrXfHLszhwK1bCQCe1H8zYGuBXm7", //TODO: Pull API_KEY from somewhere secure
+    Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
   },
 });
 
