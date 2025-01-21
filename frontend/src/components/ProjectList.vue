@@ -14,7 +14,7 @@
           hover
           class="bg-secondary"
           v-if="!props.dash && !isMobile"
-          ><template v-slot:item.dimensions="{ item }">
+          ><template v-slot:[`item.dimensions`]="{ item }">
             {{ convertToPrettyDimension(item.width_in) }}W
             {{ convertToPrettyDimension(item.depth_in) }}D
             {{ convertToPrettyDimension(item.height_in) }}H

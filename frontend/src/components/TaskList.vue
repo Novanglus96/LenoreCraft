@@ -19,31 +19,31 @@
           hover
           class="blackboard"
           :rounded="0"
-          ><template v-slot:header.task_status.id
+          ><template v-slot:[`header.task_status.id`]
             ><v-icon icon="mdi-nail" size="x-small"></v-icon
           ></template>
-          <template v-slot:header.task_name>
+          <template v-slot:[`header.task_name`]>
             <div class="font-weight-bold">Task Name</div>
           </template>
-          <template v-slot:header.start_date>
+          <template v-slot:[`header.start_date`]>
             <div class="font-weight-bold">Start Date</div>
           </template>
-          <template v-slot:header.due_date>
+          <template v-slot:[`header.due_date`]>
             <div class="font-weight-bold">Due Date</div>
           </template>
-          <template v-slot:header.completed_date>
+          <template v-slot:[`header.completed_date`]>
             <div class="font-weight-bold">Completed Date</div>
           </template>
-          <template v-slot:header.project.project_name>
+          <template v-slot:[`header.project.project_name`]>
             <div class="font-weight-bold">Project</div>
           </template>
-          <template v-slot:item.task_name="{ item }"
+          <template v-slot:[`item.task_name`]="{ item }"
             ><div class="text-start">{{ item.task_name }}</div></template
-          ><template v-slot:item.project.project_name="{ item }"
+          ><template v-slot:[`item.project.project_name`]="{ item }"
             ><div class="text-start">
               {{ item.project.project_name }}
             </div></template
-          ><template v-slot:item.task_status.id="{ item }"
+          ><template v-slot:[`item.task_status.id`]="{ item }"
             ><v-tooltip :text="item.task_status.status" location="top">
               <template v-slot:activator="{ props }"
                 ><v-icon
@@ -52,9 +52,9 @@
                   v-bind="props"
                   size="small"
                 ></v-icon></template></v-tooltip></template></v-data-table-server></v-card-text></v-card
-    ><v-card v-if="isMobile" :rounded="0">
+    ><v-card v-if="isMobile && props.dash" :rounded="0">
       <v-list class="blackboard" :rounded="0">
-        <v-list-item v-for="(task, index) in tasks" :key="task.id">
+        <v-list-item v-for="task in tasks" :key="task.id">
           <v-list-item-content>
             <v-list-item-title>{{ task.task_name }}</v-list-item-title>
           </v-list-item-content>
