@@ -1,0 +1,37 @@
+[
+  {
+    "model": "task.TaskStatus",
+    "pk": 1,
+    "fields": {
+        "task_status": "Not Started"
+    }
+  },
+  {
+    "model": "task.TaskStatus",
+    "pk": 2,
+    "fields": {
+        "task_status": "In Progress"
+    }
+  },
+  {
+    "model": "task.TaskStatus",
+    "pk": 3,
+    "fields": {
+        "task_status": "On Hold"
+    }
+  },
+  {
+    "model": "task.TaskStatus",
+    "pk": 4,
+    "fields": {
+        "task_status": "Completed"
+    }
+  },
+  {
+    "model": "task.TaskStatus",
+    "pk": 5,
+    "fields": {
+        "task_status": "Cancelled"
+    }
+  }
+]
