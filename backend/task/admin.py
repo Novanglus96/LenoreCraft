@@ -22,6 +22,9 @@ class TaskAdmin(ImportExportModelAdmin, admin.ModelAdmin):
         "due_date",
         "completed_date",
         "project",
+        "phase",
+        "step",
+        "part"
     ]
 
     list_display_links = ["task_name"]

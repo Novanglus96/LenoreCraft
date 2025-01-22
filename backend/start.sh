@@ -16,5 +16,7 @@ fi
 python manage.py loaddata administration/fixtures/version
 python manage.py loaddata project/fixtures/project_status
 python manage.py loaddata task/fixtures/task_status
+python manage.py loaddata project/fixtures/project_phase
+python manage.py loaddata part/fixtures/part_status
 
 gunicorn backend.wsgi:application --bind 0.0.0.0:8000

@@ -1,0 +1,44 @@
+[
+  {
+    "model": "part.PartStatus",
+    "pk": 1,
+    "fields": {
+        "part_status": "Uncut"
+    }
+  },
+  {
+    "model": "part.PartStatus",
+    "pk": 2,
+    "fields": {
+        "part_status": "Started Rough Cut"
+    }
+  },
+  {
+    "model": "part.PartStatus",
+    "pk": 3,
+    "fields": {
+        "part_status": "Finished Rough Cut"
+    }
+  },
+  {
+    "model": "part.PartStatus",
+    "pk": 4,
+    "fields": {
+        "part_status": "Started Finished Cut"
+    }
+  },
+  {
+    "model": "part.PartStatus",
+    "pk": 5,
+    "fields": {
+        "part_status": "Finished"
+    }
+  },
+  {
+    "model": "part.PartStatus",
+    "pk": 6,
+    "fields": {
+        "part_status": "No Longer Needed"
+    }
+  }
+]

@@ -54,3 +54,17 @@ class Project(models.Model):
 
     def __str__(self):
         return self.project_name
+
+
+class ProjectPhase(models.Model):
+    """
+    Model representing a phase for projects.
+
+    Fields:
+    - project_phase (CharField): The text phase of a project.
+    """
+
+    project_phase = models.CharField(max_length=254, unique=True)
+
+    def __str__(self):
+        return self.project_phase

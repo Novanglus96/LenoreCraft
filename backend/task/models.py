@@ -1,5 +1,6 @@
 from django.db import models
-from project.models import Project
+from project.models import Project, ProjectPhase
+from part.models import Part
 
 # Create your models here.
 
@@ -33,6 +34,9 @@ class Task(models.Model):
     - due_date (DateField): The date this task is due
     - completed_date (DateField): The date this task completed
     - project (Foreignkey): A referece to a Project
+    - phase (ForeignKey): A reference to a Project Phase
+    - step (IntegerField): The number representing the order of the step
+    - part (ForeignKey): A reference to a Part
     """
 
     task_name = models.CharField(max_length=254, unique=True)
@@ -44,6 +48,17 @@ class Task(models.Model):
     completed_date = models.DateField(null=True, blank=True, default=None)
     project = models.ForeignKey(
         Project, null=True, on_delete=models.SET_NULL, blank=True, default=None
+    )
+    phase = models.ForeignKey(
+        ProjectPhase,
+        null=True,
+        on_delete=models.SET_NULL,
+        blank=True,
+        default=None,
+    )
+    step = models.IntegerField(blank=True, null=True, default=None)
+    part = models.ForeignKey(
+        Part, null=True, on_delete=models.SET_NULL, blank=True, default=None
     )
 
     def __str__(self):

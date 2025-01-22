@@ -1,9 +1,17 @@
 from django.contrib import admin
-from .models import ProjectStatus, Project
+from .models import ProjectStatus, Project, ProjectPhase
 from django.http import HttpResponse
 from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
+
+
+class ProjectPhaseAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    list_display = ["id", "project_phase"]
+
+    list_display_links = ["project_phase"]
+
+    ordering = ["id"]
 
 
 class ProjectStatusAdmin(ImportExportModelAdmin, admin.ModelAdmin):
@@ -34,3 +42,4 @@ class ProjectAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 
 admin.site.register(ProjectStatus, ProjectStatusAdmin)
 admin.site.register(Project, ProjectAdmin)
+admin.site.register(ProjectPhase, ProjectPhaseAdmin)
