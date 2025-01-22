@@ -1,0 +1,30 @@
+[
+  {
+    "model": "project.ProjectStatus",
+    "pk": 1,
+    "fields": {
+        "project_status": "In Progress"
+    }
+  },
+  {
+    "model": "project.ProjectStatus",
+    "pk": 2,
+    "fields": {
+        "project_status": "On Hold"
+    }
+  },
+  {
+    "model": "project.ProjectStatus",
+    "pk": 3,
+    "fields": {
+        "project_status": "Completed"
+    }
+  },
+  {
+    "model": "project.ProjectStatus",
+    "pk": 4,
+    "fields": {
+        "project_status": "Cancelled"
+    }
+  }
+]
