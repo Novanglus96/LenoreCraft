@@ -118,4 +118,4 @@ class Material(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.material_object_name
+        return self.material_object.material_object_name
