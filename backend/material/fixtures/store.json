@@ -1,0 +1,37 @@
+[
+  {
+    "model": "material.Store",
+    "pk": 1,
+    "fields": {
+        "store_name": "Amazon"
+    }
+  },
+  {
+    "model": "material.Store",
+    "pk": 2,
+    "fields": {
+        "store_name": "Home Depot"
+    }
+  },
+  {
+    "model": "material.Store",
+    "pk": 3,
+    "fields": {
+        "store_name": "Lowes"
+    }
+  },
+  {
+    "model": "material.Store",
+    "pk": 4,
+    "fields": {
+        "store_name": "Walmart"
+    }
+  },
+  {
+    "model": "material.Store",
+    "pk": 5,
+    "fields": {
+        "store_name": "Woodworkers Source"
+    }
+  }
+]

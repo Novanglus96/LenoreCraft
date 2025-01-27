@@ -18,5 +18,8 @@ python manage.py loaddata project/fixtures/project_status
 python manage.py loaddata task/fixtures/task_status
 python manage.py loaddata project/fixtures/project_phase
 python manage.py loaddata part/fixtures/part_status
+python manage.py loaddata material/fixtures/store
+python manage.py loaddata material/fixtures/wood_species
+python manage.py loaddata material/fixtures/material_status
 
 python manage.py runserver 0.0.0.0:8001

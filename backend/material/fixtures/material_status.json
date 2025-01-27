@@ -1,0 +1,37 @@
+[
+  {
+    "model": "material.MaterialStatus",
+    "pk": 1,
+    "fields": {
+        "material_status": "Needed"
+    }
+  },
+  {
+    "model": "material.MaterialStatus",
+    "pk": 2,
+    "fields": {
+        "material_status": "Ordered"
+    }
+  },
+  {
+    "model": "material.MaterialStatus",
+    "pk": 3,
+    "fields": {
+        "material_status": "Have"
+    }
+  },
+  {
+    "model": "material.MaterialStatus",
+    "pk": 4,
+    "fields": {
+        "material_status": "No Longer Needed"
+    }
+  },
+  {
+    "model": "material.MaterialStatus",
+    "pk": 5,
+    "fields": {
+        "material_status": "Bought"
+    }
+  }
+]

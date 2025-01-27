@@ -1,0 +1,65 @@
+[
+  {
+    "model": "material.WoodSpecies",
+    "pk": 1,
+    "fields": {
+        "wood_species_name": "Oak"
+    }
+  },
+  {
+    "model": "material.WoodSpecies",
+    "pk": 2,
+    "fields": {
+        "wood_species_name": "Pine"
+    }
+  },
+  {
+    "model": "material.WoodSpecies",
+    "pk": 3,
+    "fields": {
+        "wood_species_name": "Walnut"
+    }
+  },
+  {
+    "model": "material.WoodSpecies",
+    "pk": 4,
+    "fields": {
+        "wood_species_name": "Cedar"
+    }
+  },
+  {
+    "model": "material.WoodSpecies",
+    "pk": 5,
+    "fields": {
+        "wood_species_name": "Teak"
+    }
+  },
+  {
+    "model": "material.WoodSpecies",
+    "pk": 6,
+    "fields": {
+        "wood_species_name": "Poplar"
+    }
+  },
+  {
+    "model": "material.WoodSpecies",
+    "pk": 7,
+    "fields": {
+        "wood_species_name": "Ash"
+    }
+  },
+  {
+    "model": "material.WoodSpecies",
+    "pk": 8,
+    "fields": {
+        "wood_species_name": "Douglas Fir"
+    }
+  },
+  {
+    "model": "material.WoodSpecies",
+    "pk": 9,
+    "fields": {
+        "wood_species_name": "Red Oak"
+    }
+  }
+]
