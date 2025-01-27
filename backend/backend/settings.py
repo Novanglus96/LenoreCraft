@@ -238,6 +238,7 @@ JAZZMIN_SETTINGS = {
         "material.MaterialStatus": "fas fa-ruler",
         "material.Store": "fas fa-ruler",
         "material.WoodSpecies": "fas fa-ruler",
+        "note.Note": "fas fa-pencil",
     },
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",
@@ -259,6 +260,8 @@ JAZZMIN_SETTINGS = {
         "material.MaterialStatus",
         "material.Store",
         "material.WoodSpecies",
+        "note",
+        "note.Note",
         "adminstration",
     ],
     "changeform_format": "collapsible",
