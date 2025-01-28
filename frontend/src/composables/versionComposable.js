@@ -8,7 +8,11 @@ const apiClient = axios.create({
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
-    Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+    Authorization: `Bearer ${
+      window.VITE_API_KEY === "__VITE_API_KEY__"
+        ? import.meta.env.VITE_API_KEY // Fallback to the environment variable if the value is the default placeholder
+        : window.VITE_API_KEY // Otherwise, use the value in window.VITE_API_KEY
+    }`,
   },
 });
 
