@@ -1,1 +1,11 @@
 site_name: LenoreCraft
+nav:
+  - Home: index.md
+  - About: about.md
+  - Reference:
+      - Models: models.md
+      - API: api.md
+theme: readthedocs
+plugins:
+- search
+- mkdocstrings
