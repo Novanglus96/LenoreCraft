@@ -19,3 +19,4 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 ## Some other section
     * A list
     * Another item
+  :smile:

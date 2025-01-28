@@ -1,11 +1,20 @@
 site_name: LenoreCraft
+site_description: v0.0.004
+site_author: John Adams
+copyright: 2025 John Adams
 nav:
   - Home: index.md
   - About: about.md
   - Reference:
       - Models: models.md
       - API: api.md
-theme: readthedocs
+theme:
+  name: material
 plugins:
 - search
 - mkdocstrings
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
