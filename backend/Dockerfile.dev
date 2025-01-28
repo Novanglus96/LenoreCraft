@@ -20,6 +20,9 @@ COPY ./requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Install MkDocs
+RUN pip install mkdocs 'mkdocstrings[python]'
+
 # Copy entrypoint script
 COPY ./entrypoint.sh /usr/src/app/entrypoint.sh
 RUN chmod +x /usr/src/app/entrypoint.sh

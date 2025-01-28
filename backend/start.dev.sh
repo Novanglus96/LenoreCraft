@@ -22,4 +22,5 @@ python manage.py loaddata material/fixtures/store
 python manage.py loaddata material/fixtures/wood_species
 python manage.py loaddata material/fixtures/material_status
 
-python manage.py runserver 0.0.0.0:8001
+python manage.py runserver 0.0.0.0:8001 &
+mkdocs serve --dev-addr=0.0.0.0:8002
