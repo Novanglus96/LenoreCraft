@@ -26,7 +26,7 @@ from material.api.routers.store import store_router
 
 api = NinjaAPI(auth=GlobalAuth())
 api.title = "LenoreCraft API"
-api.version = "0.0.1"
+api.version = "0.0.001"
 api.description = "API documentation for LenoreCraft"
 
 # Add routers to the API
