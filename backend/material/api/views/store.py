@@ -35,7 +35,7 @@ store_router = Router(tags=["Stores"])
 @store_router.post("/create")
 def create_store(request, payload: StoreIn):
     """
-    The function `store_bank` creates a store
+    The function `create_store` creates a store
 
     Args:
         request ():

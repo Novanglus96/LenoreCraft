@@ -12,7 +12,17 @@ theme:
   name: material
 plugins:
 - search
-- mkdocstrings
+- mkdocstrings:
+    handlers:
+      python:
+        options:
+          show_root_heading: true
+          show_root_full_path: false
+          show_bases: false
+          allow_inspection: true
+          members:
+            - __str__
+        docstring_style: google
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:

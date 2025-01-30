@@ -39,7 +39,7 @@ def list_version(request):
         request (HttpRequest): The HTTP request object.
 
     Returns:
-        VersionOut: a version object
+        (VersionOut): a version object
     """
 
     try:

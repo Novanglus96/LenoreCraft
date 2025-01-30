@@ -4,6 +4,12 @@ from django.db import models
 
 
 class SingletonModel(models.Model):
+    """
+    A Singleton model that ensures there is only one instance
+    of this model that can not be deleted.
+
+    """
+
     class Meta:
         abstract = True
 
@@ -21,10 +27,14 @@ class Version(SingletonModel):
     Model representing app version.
 
     Fields:
-    - version_number (CharField): The current version of the app.
+        - version_number (CharField): The current version of the app.
     """
 
     version_number = models.CharField(max_length=10)
 
     def __str__(self):
+        """
+        Returns:
+            (String): The version number of the app.
+        """
         return self.version_number
