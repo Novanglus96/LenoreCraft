@@ -2,6 +2,10 @@
 ### ::: administration.models.Version
 
 ### ::: administration.models.SingletonModel
+        options:
+            members:
+                - save
+                - delete
 
 ## Material
 ### ::: material.models.MaterialStatus

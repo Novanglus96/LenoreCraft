@@ -8,8 +8,8 @@ class MaterialStatus(models.Model):
     """
     Model representing a status for materials.
 
-    Fields:
-        - material_status (CharField): The text status of a material.
+    Args:
+        material_status (CharField): The text status of a material.
     """
 
     material_status = models.CharField(max_length=254, unique=True)
@@ -29,8 +29,8 @@ class WoodSpecies(models.Model):
     """
     Model representing a wood species for materials.
 
-    Fields:
-        - wood_species_name (CharField): The name of a species of wood.
+    Args:
+        wood_species_name (CharField): The name of a species of wood.
     """
 
     wood_species_name = models.CharField(max_length=254, unique=True)
@@ -50,8 +50,8 @@ class Store(models.Model):
     """
     Model representing a store
 
-    Fields:
-        - store_name (CharField): The name of a store.
+    Args:
+        store_name (CharField): The name of a store.
     """
 
     store_name = models.CharField(max_length=254, unique=True)
@@ -68,17 +68,17 @@ class MaterialObject(models.Model):
     """
     Model representing a material object.
 
-    Fields:
-        - material_object_name (CharField): The name of a material object.
-        - thickness_in (DecimalField): The thickness of the object
-        - width_in (DecimalField): The width of the object
-        - length_in (DecimalField): The length of the object
-        - wood_species (ForeignKey): A refernce to a Wood Species object
-        - store (ForeignKey): A refrence to a Store
-        - store_aisle (CharField): The aisle of Store this material object can be
+    Args:
+        material_object_name (CharField): The name of a material object.
+        thickness_in (DecimalField): The thickness of the object
+        width_in (DecimalField): The width of the object
+        length_in (DecimalField): The length of the object
+        wood_species (ForeignKey): A refernce to a Wood Species object
+        store (ForeignKey): A refrence to a Store
+        store_aisle (CharField): The aisle of Store this material object can be
         found.
-        - store_bin (CharField): The bin of the aisle.
-        - store_price (DecimalField): The price of this material object.
+        store_bin (CharField): The bin of the aisle.
+        store_price (DecimalField): The price of this material object.
     """
 
     material_object_name = models.CharField(max_length=254, unique=True)
@@ -113,11 +113,11 @@ class Material(models.Model):
     """
     Model representing a material.
 
-    Fields:
-        - material_object (ForeignKey): A reference to a Material Object
-        - quantity (IntegerField): The quantity of material objects
-        - material_status (ForeignKey): A reference to a Material Status
-        - project (ForeignKey): A refrence to a Project
+    Args:
+        material_object (ForeignKey): A reference to a Material Object
+        quantity (IntegerField): The quantity of material objects
+        material_status (ForeignKey): A reference to a Material Status
+        project (ForeignKey): A refrence to a Project
     """
 
     material_object = models.ForeignKey(

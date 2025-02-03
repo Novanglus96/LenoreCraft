@@ -37,12 +37,16 @@ def create_store(request, payload: StoreIn):
     """
     The function `create_store` creates a store
 
+    Endpoint:
+        - **Path**: `/api/v1/store/create`
+        - **Method**: `POST`
+
     Args:
         request ():
         payload (StoreIn): An object using schema of StoreIn.
 
     Returns:
-        id: returns the id of the created store
+        id (int): returns the id of the created store
     """
 
     try:
@@ -65,13 +69,17 @@ def update_store(request, store_id: int, payload: StoreIn):
     """
     The function `update_store` updates the store specified by id.
 
+    Endpoint:
+        - **Path**: `/api/v1/store/get/{store_id}`
+        - **Method**: `PUT`
+
     Args:
         request (HttpRequest): The HTTP request object.
         store_id (int): the id of the store to update
         payload (StoreIn): a store object
 
     Returns:
-        success: True
+        success (bool): True
 
     Raises:
         Http404: If the store with the specified ID does not exist.
@@ -102,12 +110,17 @@ def get_store(request, store_id: int):
     """
     The function `get_store` retrieves the store by id
 
+    Endpoint:
+        - **Path**: `/api/v1/store/get/{store_id}`
+        - **Method**: `GET`
+        - **Response Model**: `StoreOut`
+
     Args:
         request (HttpRequest): The HTTP request object.
         store_id (int): The id of the store to retrieve.
 
     Returns:
-        StoreOut: The store object
+        (StoreOut): The store object
 
     Raises:
         Http404: If the store with the specified ID does not exist.
@@ -127,11 +140,16 @@ def list_stores(request):
     The function `list_stores` retrieves a list of storees,
     ordered by store_name ascending.
 
+    Endpoint:
+        - **Path**: `/api/v1/store/list`
+        - **Method**: `GET`
+        - **Response Model**: `StoreOut`
+
     Args:
         request (HttpRequest): The HTTP request object.
 
     Returns:
-        StoreOut: a list of store objects
+        (StoreOut): a list of store objects
     """
 
     try:
@@ -147,12 +165,16 @@ def delete_store(request, store_id: int):
     """
     The function `delete_store` deletes the store specified by id.
 
+    Endpoint:
+        - **Path**: `/api/v1/store/delete/{store_id}`
+        - **Method**: `DELETE`
+
     Args:
         request (HttpRequest): The HTTP request object.
         store_id (int): the id of the store to delete
 
     Returns:
-        success: True
+        success (bool): True
 
     Raises:
         Http404: If the store with the specified ID does not exist.

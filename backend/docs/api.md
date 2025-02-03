@@ -1,6 +1,9 @@
 ## Administration
 ### Dependencies
 #### ::: administration.api.dependencies.auth.GlobalAuth
+         options:
+            members:
+                - authenticate
 ### Views
 #### ::: administration.api.views.version.list_version
 ### Schemas

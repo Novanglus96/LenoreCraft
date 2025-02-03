@@ -35,6 +35,11 @@ def list_version(request):
     The function `list_version` retrieves the app version number
     from the backend.
 
+    Endpoint:
+        - **Path**: `/api/v1/administration/version/list`
+        - **Method**: `GET`
+        - **Response Model**: `VersionOut`
+
     Args:
         request (HttpRequest): The HTTP request object.
 
