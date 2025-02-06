@@ -43,8 +43,8 @@ class Version(SingletonModel):
     """
     Model representing app version.
 
-    Args:
-        version_number (CharField): The current version of the app.
+    Attributes:
+        version_number (CharField): The current version of the app. Required.
     """
 
     version_number = models.CharField(max_length=10)

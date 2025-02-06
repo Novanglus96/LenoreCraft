@@ -39,17 +39,23 @@ class Note(models.Model):
     """
     Model representing a note.
 
-    Args:
-        note_date (DateField): the date of the note
-        note (CharField): The text of the note
-        attachment (FileField): Any attachment associated with this note
-        project (ForeignKey): A reference to a Project
+    Attributes:
+        note_date (DateField): The date of the note. Required.
+        note (CharField): The text of the note. Required.
+        attachment (Optional[FileField]): Any attachment associated with this
+            note. Dafaults to None.
+        project (Optional[ForeignKey]): A reference to a Project. Defaults to
+            None.
     """
 
     note_date = models.DateField(default=current_date)
     note = models.CharField(max_length=508)
-    attachment = models.FileField(upload_to=attachment_name)
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    attachment = models.FileField(
+        upload_to=attachment_name, null=True, blank=True, default=None
+    )
+    project = models.ForeignKey(
+        Project, on_delete=models.CASCADE, null=True, blank=True, default=None
+    )
 
     def __str__(self):
         """

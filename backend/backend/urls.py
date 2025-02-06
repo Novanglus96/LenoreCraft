@@ -23,6 +23,10 @@ from administration.api.dependencies.auth import GlobalAuth
 # Import routers from apps
 from administration.api.routers.version import version_router
 from material.api.routers.store import store_router
+from material.api.routers.material_status import material_status_router
+from material.api.routers.wood_species import wood_species_router
+from material.api.routers.material_object import material_object_router
+from material.api.routers.material import material_router
 
 api = NinjaAPI(auth=GlobalAuth())
 api.title = "LenoreCraft API"
@@ -32,6 +36,10 @@ api.description = "API documentation for LenoreCraft"
 # Add routers to the API
 api.add_router("/administration/version", version_router)
 api.add_router("/material/store", store_router)
+api.add_router("/material/material_status", material_status_router)
+api.add_router("/material/wood_species", wood_species_router)
+api.add_router("/material/material_object", material_object_router)
+api.add_router("/material/material", material_router)
 
 urlpatterns = [
     path("admin/", admin.site.urls),

@@ -6,9 +6,9 @@ class VersionOut(Schema):
     """
     Schema to represent a Version
 
-    Args:
-        id (int): The id of the Version
-        version_number (str): The version number
+    Attributes:
+        id (int): The id of the Version. Required.
+        version_number (str): The version number. Required.
     """
 
     id: int
