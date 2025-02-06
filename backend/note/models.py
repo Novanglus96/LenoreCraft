@@ -39,11 +39,11 @@ class Note(models.Model):
     """
     Model representing a note.
 
-    Fields:
-        - note_date (DateField): the date of the note
-        - note (CharField): The text of the note
-        - attachment (FileField): Any attachment associated with this note
-        - project (ForeignKey): A reference to a Project
+    Args:
+        note_date (DateField): the date of the note
+        note (CharField): The text of the note
+        attachment (FileField): Any attachment associated with this note
+        project (ForeignKey): A reference to a Project
     """
 
     note_date = models.DateField(default=current_date)
