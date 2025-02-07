@@ -24,3 +24,10 @@
 ### ::: note.models.attachment_name
 
 ### ::: note.models.Note
+
+## Project
+### ::: project.models.ProjectStatus
+
+### ::: project.models.Project
+
+### ::: project.models.ProjectPhase

@@ -31,6 +31,15 @@
 #### ::: material.api.views.material.get_material
 #### ::: material.api.views.material.list_materials
 #### ::: material.api.views.material.delete_material
+#### ::: project.api.views.project_status.get_project_status
+#### ::: project.api.views.project_status.list_project_statuses
+#### ::: project.api.views.project.create_project
+#### ::: project.api.views.project.update_project
+#### ::: project.api.views.project.get_project
+#### ::: project.api.views.project.list_projects
+#### ::: project.api.views.project.delete_project
+#### ::: project.api.views.project_phase.get_project_phase
+#### ::: project.api.views.project_phase.list_project_phases
 ### Schemas
 #### ::: material.api.schemas.material_status.MaterialStatusOut
 #### ::: material.api.schemas.wood_species.WoodSpeciesOut
@@ -40,3 +49,7 @@
 #### ::: material.api.schemas.material_object.MaterialObjectOut
 #### ::: material.api.schemas.material.MaterialIn
 #### ::: material.api.schemas.material.MaterialOut
+#### ::: project.api.schemas.project_status.ProjectStatusOut
+#### ::: project.api.schemas.project.ProjectIn
+#### ::: project.api.schemas.project.ProjectOut
+#### ::: project.api.schemas.project_phase.ProjectPhaseOut

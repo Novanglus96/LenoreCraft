@@ -2,6 +2,7 @@ from ninja import Schema
 from material.api.schemas.material_object import MaterialObjectOut
 from material.api.schemas.material_status import MaterialStatusOut
 from typing import List, Optional, Dict, Any, TYPE_CHECKING
+from project.api.schemas.project import ProjectOut
 
 
 # The class MaterialOut is a schema for representing Material information
@@ -22,6 +23,7 @@ class MaterialOut(Schema):
     material_object: MaterialObjectOut
     quantity: int = 1
     material_status: MaterialStatusOut = None
+    project: ProjectOut
 
 
 # The class MaterialIn is a schema for validating Material information.
@@ -34,7 +36,7 @@ class MaterialIn(Schema):
         quantity (int): The number of MaterialObjects. Required. Defaults to 1.
         material_status_id (Optional[int]): The ID of a MaterialStatus. Defaults
             to None.
-        project (Optional[int]): The ID of a Project. Defaults to None.
+        project_id (Optional[int]): The ID of a Project. Defaults to None.
     """
 
     material_object_id: int
