@@ -1,22 +1,22 @@
 ## Administration
-### ::: administration.models.Version
-
 ### ::: administration.models.SingletonModel
         options:
             members:
                 - save
                 - delete
 
+### ::: administration.models.Version
+
 ## Material
-### ::: material.models.MaterialStatus
-
-### ::: material.models.WoodSpecies
-
-### ::: material.models.Store
+### ::: material.models.Material
 
 ### ::: material.models.MaterialObject
 
-### ::: material.models.Material
+### ::: material.models.MaterialStatus
+
+### ::: material.models.Store
+
+### ::: material.models.WoodSpecies
 
 ## Note
 ### ::: note.models.attachment_name
@@ -24,13 +24,18 @@
 ### ::: note.models.Note
 
 ## Part
-### ::: part.models.PartStatus
-
 ### ::: part.models.Part
 
-## Project
-### ::: project.models.ProjectStatus
+### ::: part.models.PartStatus
 
+## Project
 ### ::: project.models.Project
 
 ### ::: project.models.ProjectPhase
+
+### ::: project.models.ProjectStatus
+
+## Task
+### ::: task.models.Task
+
+### ::: task.models.TaskStatus

@@ -7,10 +7,12 @@ from part.models import Part
 
 class TaskStatus(models.Model):
     """
+
     Model representing a status for projects.
 
-    Fields:
-    - task_status (CharField): The text status of a task.
+    Attributes:
+        task_status (CharField): The text status of a task. Required.
+
     """
 
     task_status = models.CharField(max_length=254, unique=True)
@@ -24,19 +26,20 @@ class TaskStatus(models.Model):
 
 class Task(models.Model):
     """
+
     Model representing a task.
 
-    Fields:
-    - task_name (CharField): The name of the task, limited to 254 characters,
-    and must be unique.
-    - task_status (TaskStatus): A reference to a Task Status.
-    - start_date (DateField): The date this task started
-    - due_date (DateField): The date this task is due
-    - completed_date (DateField): The date this task completed
-    - project (Project): A referece to a Project
-    - phase (ProjectPhase): A reference to a Project Phase
-    - step (IntegerField): The number representing the order of the step
-    - part (Part): A reference to a Part
+    Attributes:
+        task_name (CharField): The name of the task. Required. Unique. 254 limit.
+        task_status (TaskStatus): A reference to a Task Status. Required.
+        start_date (Optional[DateField]): The date this task started. Defaults to None.
+        due_date (Optional[DateField]): The date this task is due. Defaults to None.
+        completed_date (Optional[DateField]): The date this task completed. Defaults to None.
+        project (Optional[Project]): A referece to a Project. Defaults to None.
+        phase (Optional[ProjectPhase]): A reference to a Project Phase. Defaults to None.
+        step (Optional[IntegerField]): The number representing the order of the step. Defaults to None.
+        part (Optioanl[Part]): A reference to a Part. Defaults to None.
+
     """
 
     task_name = models.CharField(max_length=254, unique=True)

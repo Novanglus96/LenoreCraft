@@ -33,6 +33,8 @@ from project.api.routers.project_phase import project_phase_router
 from note.api.routers.note import note_router
 from part.api.routers.part_status import part_status_router
 from part.api.routers.part import part_router
+from task.api.routers.task_status import task_status_router
+from task.api.routers.task import task_router
 
 api = NinjaAPI(auth=GlobalAuth())
 api.title = "LenoreCraft API"
@@ -52,6 +54,8 @@ api.add_router("/project/project_phase", project_phase_router)
 api.add_router("/note/note", note_router)
 api.add_router("/part/part_status", part_status_router)
 api.add_router("/part/part", part_router)
+api.add_router("/task/task_status", task_status_router)
+api.add_router("/task/task", task_router)
 
 urlpatterns = [
     path("admin/", admin.site.urls),

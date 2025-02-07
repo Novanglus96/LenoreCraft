@@ -87,3 +87,18 @@
 #### ::: project.api.schemas.project.ProjectOut
 #### ::: project.api.schemas.project_phase.ProjectPhaseOut
 #### ::: project.api.schemas.project_status.ProjectStatusOut
+
+## Task
+### Dependencies
+### Views
+#### ::: task.api.views.task.create_task
+#### ::: task.api.views.task.delete_task
+#### ::: task.api.views.task.get_task
+#### ::: task.api.views.task_status.get_task_status
+#### ::: task.api.views.task_status.list_task_statuses
+#### ::: task.api.views.task.list_tasks
+#### ::: task.api.views.task.update_task
+### Schemas
+#### ::: task.api.schemas.task_status.TaskStatusOut
+#### ::: task.api.schemas.task.TaskIn
+#### ::: task.api.schemas.task.TaskOut
