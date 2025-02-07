@@ -23,6 +23,11 @@
 
 ### ::: note.models.Note
 
+## Part
+### ::: part.models.PartStatus
+
+### ::: part.models.Part
+
 ## Project
 ### ::: project.models.ProjectStatus
 

@@ -6,10 +6,12 @@ from project.models import Project
 
 class PartStatus(models.Model):
     """
+
     Model representing a status for parts.
 
-    Fields:
-    - part_status (CharField): The text status of a task.
+    Attributes:
+        part_status (CharField): The text status of a part. Required.
+
     """
 
     part_status = models.CharField(max_length=254, unique=True)
@@ -23,24 +25,27 @@ class PartStatus(models.Model):
 
 class Part(models.Model):
     """
+
     Model representing a part.
 
-    Fields:
-    - quantity (IntegerField): The quantity of this part
-    - part_name (CharField): The name of the part, limited to 254 characters,
-    and must be unique.
-    - part_status (ForeignKey): A reference to a Part Status.
-    - rough_thickness_in (DecimalField): The rough thickness of the part in inches
-    - rough_width_in (DecimalField): The rough width of the part in inches
-    - rough_length_in (DecimalField): The rough length of the part in inches
-    - finished_thickness_in (DecimalField): The finished thickness of the part in inches
-    - finished_width_in (DecimalField): The finished width of the part in inches
-    - finished_length_in (DecimalField): The finished length of the part in inches
-    - project (Foreignkey): A referece to a Project
+    Attributes:
+        quantity (IntegerField): The quantity of this part. Required.
+        part_name (CharField): The name of the part. Required. 254 limit.
+        part_status (PartStatus): A reference to a Part Status. Required.
+        rough_thickness_in (DecimalField): The rough thickness of the part in inches.
+            Required.
+        rough_width_in (DecimalField): The rough width of the part in inches. Required.
+        rough_length_in (DecimalField): The rough length of the part in inches. Required.
+        finished_thickness_in (DecimalField): The finished thickness of the part in inches.
+            Required.
+        finished_width_in (DecimalField): The finished width of the part in inches. Required.
+        finished_length_in (DecimalField): The finished length of the part in inches. Required.
+        project (Project): A referece to a Project. Required.
+
     """
 
     quantity = models.IntegerField()
-    part_name = models.CharField(max_length=254, unique=True)
+    part_name = models.CharField(max_length=254)
     part_status = models.ForeignKey(
         PartStatus, null=True, on_delete=models.SET_NULL
     )

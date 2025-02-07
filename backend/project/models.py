@@ -32,7 +32,7 @@ class Project(models.Model):
 
     Attributes:
         project_name (CharField): The name of the poject. Required. Unique. 254 limit.
-        project_status (ForeignKey): A reference to a Project Status. Required.
+        project_status (ProjectStatus): A reference to a Project Status. Required.
         project_image (Optional[FileField]): An image for the project. Defaults to None.
         start_date (Optional[DateField]): The date this project started. Defaults to None.
         due_date (Optional[DateField]): The date this project is due. Defaults to None.

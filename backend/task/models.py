@@ -29,14 +29,14 @@ class Task(models.Model):
     Fields:
     - task_name (CharField): The name of the task, limited to 254 characters,
     and must be unique.
-    - task_status (ForeignKey): A reference to a Task Status.
+    - task_status (TaskStatus): A reference to a Task Status.
     - start_date (DateField): The date this task started
     - due_date (DateField): The date this task is due
     - completed_date (DateField): The date this task completed
-    - project (Foreignkey): A referece to a Project
-    - phase (ForeignKey): A reference to a Project Phase
+    - project (Project): A referece to a Project
+    - phase (ProjectPhase): A reference to a Project Phase
     - step (IntegerField): The number representing the order of the step
-    - part (ForeignKey): A reference to a Part
+    - part (Part): A reference to a Part
     """
 
     task_name = models.CharField(max_length=254, unique=True)

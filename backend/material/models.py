@@ -124,7 +124,7 @@ class Material(models.Model):
     Model representing a material.
 
     Attributes:
-        material_object (ForeignKey): A reference to a Material Object. Required.
+        material_object (MaterialObject): A reference to a Material Object. Required.
         quantity (IntegerField): The quantity of material objects. Required.
         material_status (Optional[ForeignKey]): A reference to a Material Status.
             Defaults to None.
