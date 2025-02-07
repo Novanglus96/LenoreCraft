@@ -4,6 +4,8 @@
          options:
             members:
                 - authenticate
+#### ::: administration.api.dependencies.current_date.current_date
+
 ### Views
 #### ::: administration.api.views.version.list_version
 ### Schemas
@@ -31,6 +33,11 @@
 #### ::: material.api.views.material.get_material
 #### ::: material.api.views.material.list_materials
 #### ::: material.api.views.material.delete_material
+#### ::: note.api.views.note.create_note
+#### ::: note.api.views.note.update_note
+#### ::: note.api.views.note.get_note
+#### ::: note.api.views.note.list_notes
+#### ::: note.api.views.note.delete_note
 #### ::: project.api.views.project_status.get_project_status
 #### ::: project.api.views.project_status.list_project_statuses
 #### ::: project.api.views.project.create_project
@@ -49,6 +56,8 @@
 #### ::: material.api.schemas.material_object.MaterialObjectOut
 #### ::: material.api.schemas.material.MaterialIn
 #### ::: material.api.schemas.material.MaterialOut
+#### ::: note.api.schemas.note.NoteIn
+#### ::: note.api.schemas.note.NoteOut
 #### ::: project.api.schemas.project_status.ProjectStatusOut
 #### ::: project.api.schemas.project.ProjectIn
 #### ::: project.api.schemas.project.ProjectOut

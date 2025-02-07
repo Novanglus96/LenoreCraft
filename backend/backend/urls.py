@@ -30,6 +30,7 @@ from material.api.routers.material import material_router
 from project.api.routers.project_status import project_status_router
 from project.api.routers.project import project_router
 from project.api.routers.project_phase import project_phase_router
+from note.api.routers.note import note_router
 
 api = NinjaAPI(auth=GlobalAuth())
 api.title = "LenoreCraft API"
@@ -46,6 +47,7 @@ api.add_router("/material/material", material_router)
 api.add_router("/project/project_status", project_status_router)
 api.add_router("/project/project", project_router)
 api.add_router("/project/project_phase", project_phase_router)
+api.add_router("/note/note", note_router)
 
 urlpatterns = [
     path("admin/", admin.site.urls),

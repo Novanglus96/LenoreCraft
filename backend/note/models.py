@@ -4,6 +4,7 @@ import pytz
 import os
 import datetime
 from django.utils import timezone
+from administration.api.dependencies.current_date import current_date
 
 
 # Create your models here.
@@ -20,19 +21,6 @@ def attachment_name(instance, filename):
         (String): The path to attachments with the filename
     """
     return f"attachments/{filename}"
-
-
-def current_date():
-    """
-    Gets a timezone adjusted date for todays date.
-
-    Returns:
-        (Date): Timezone adjusted date
-    """
-    today = timezone.now()
-    tz_timezone = pytz.timezone(os.environ.get("TIMEZONE"))
-    today_tz = today.astimezone(tz_timezone).date()
-    return today_tz
 
 
 class Note(models.Model):

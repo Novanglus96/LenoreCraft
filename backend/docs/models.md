@@ -19,8 +19,6 @@
 ### ::: material.models.Material
 
 ## Note
-### ::: note.models.current_date
-
 ### ::: note.models.attachment_name
 
 ### ::: note.models.Note
