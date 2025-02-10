@@ -3,7 +3,7 @@
     <v-sheet class="background-image">
       <AppNavigationVue />
       <VueQueryDevtools />
-      <div class="content">
+      <div>
         <v-main>
           <v-container fluid>
             <router-view />
@@ -102,16 +102,11 @@ watch(checkVersion, newValue => {
   background-position: center;
   background-attachment: fixed; /* For the parallax effect */
   overflow: auto; /* Enables scrolling */
-}
-
-.content {
-  padding: 16px;
-  color: white;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-.content::-webkit-scrollbar {
+.background-image::-webkit-scrollbar {
   width: 0; /* Remove scrollbar space for Chrome, Safari, and Edge */
   height: 0;
   display: none; /* Completely hide the scrollbar */
