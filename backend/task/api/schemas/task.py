@@ -4,6 +4,7 @@ from project.api.schemas.project import ProjectOut
 from project.api.schemas.project_phase import ProjectPhaseOut
 from part.api.schemas.part import PartOut
 from datetime import date
+from typing import List, Optional, Dict, Any, TYPE_CHECKING
 
 
 # The class TaskOut is a schema for representing Task information
@@ -27,13 +28,13 @@ class TaskOut(Schema):
     id: int
     task_name: str
     task_status: TaskStatusOut
-    start_date: date = None
-    due_date: date = None
-    completed_date: date = None
-    project: ProjectOut = None
-    phase: ProjectPhaseOut = None
-    step: int = None
-    part: PartOut = None
+    start_date: Optional[date] = None
+    due_date: Optional[date] = None
+    completed_date: Optional[date] = None
+    project: Optional[ProjectOut] = None
+    phase: Optional[ProjectPhaseOut] = None
+    step: Optional[int] = None
+    part: Optional[PartOut] = None
 
 
 # The class TaskIn is a schema for validating Task information.
@@ -55,10 +56,10 @@ class TaskIn(Schema):
 
     task_name: str
     task_status_id: int
-    start_date: date = None
-    due_date: date = None
-    completed_date: date = None
-    project_id: int = None
-    phase_id: int = None
-    step: int = None
-    part_id: int = None
+    start_date: Optional[date] = None
+    due_date: Optional[date] = None
+    completed_date: Optional[date] = None
+    project_id: Optional[int] = None
+    phase_id: Optional[int] = None
+    step: Optional[int] = None
+    part_id: Optional[int] = None

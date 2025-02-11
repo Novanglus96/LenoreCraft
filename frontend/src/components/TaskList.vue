@@ -10,8 +10,8 @@
       ><v-card-text
         ><v-data-table-server
           :headers="headers"
-          :items="tasks"
-          :items-length="tasks.length"
+          :items="tasks ? tasks : []"
+          :items-length="tasks ? tasks.length : 0"
           :loading="isLoading"
           item-value="id"
           items-per-page="4"
@@ -41,18 +41,76 @@
             ><div class="text-start">{{ item.task_name }}</div></template
           ><template v-slot:[`item.project.project_name`]="{ item }"
             ><div class="text-start">
-              {{ item.project.project_name }}
+              <v-tooltip
+                :text="item.project.project_status.project_status"
+                location="top"
+                v-if="item.project"
+              >
+                <template v-slot:activator="{ props }"
+                  ><v-icon
+                    icon="mdi-progress-wrench"
+                    :color="getProjectStatusColor(item.project.project_status)"
+                    v-bind="props"
+                    size="small"
+                  ></v-icon>
+                </template>
+              </v-tooltip>
+              {{ item.project ? item.project.project_name : "(none)" }}
             </div></template
           ><template v-slot:[`item.task_status.id`]="{ item }"
-            ><v-tooltip :text="item.task_status.status" location="top">
+            ><v-tooltip :text="item.task_status.task_status" location="top">
               <template v-slot:activator="{ props }"
                 ><v-icon
                   icon="mdi-nail"
                   :color="getTaskStatusColor(item.task_status)"
                   v-bind="props"
                   size="small"
-                ></v-icon></template></v-tooltip></template></v-data-table-server></v-card-text></v-card
-    ><v-card v-if="isMobile && props.dash" :rounded="0">
+                ></v-icon>
+              </template>
+            </v-tooltip>
+          </template>
+          <template v-slot:[`item.start_date`]="{ item }">
+            <v-tooltip text="Start Date" location="top">
+              <template v-slot:activator="{ props }"
+                ><v-icon
+                  icon="mdi-calendar-blank"
+                  color="white"
+                  v-bind="props"
+                  size="small"
+                ></v-icon>
+                {{ item.start_date ? item.start_date : "(none)" }}
+              </template>
+            </v-tooltip>
+          </template>
+          <template v-slot:[`item.due_date`]="{ item }">
+            <v-tooltip text="Due Date" location="top">
+              <template v-slot:activator="{ props }"
+                ><v-icon
+                  icon="mdi-calendar-alert"
+                  color="white"
+                  v-bind="props"
+                  size="small"
+                ></v-icon>
+                {{ item.due_date ? item.due_date : "(none)" }}
+              </template>
+            </v-tooltip>
+          </template>
+          <template v-slot:[`item.completed_date`]="{ item }">
+            <v-tooltip text="Completed Date" location="top">
+              <template v-slot:activator="{ props }"
+                ><v-icon
+                  icon="mdi-calendar-check"
+                  color="white"
+                  v-bind="props"
+                  size="small"
+                ></v-icon>
+                {{ item.completed_date ? item.completed_date : "(none)" }}
+              </template>
+            </v-tooltip>
+          </template>
+        </v-data-table-server></v-card-text
+      ></v-card
+    ><v-card v-if="isMobile && props.dash && !isLoading" :rounded="0">
       <v-list class="blackboard" :rounded="0">
         <v-list-item v-for="task in tasks" :key="task.id">
           <v-list-item-title>{{ task.task_name }}</v-list-item-title>
@@ -65,6 +123,8 @@
 import { ref, defineProps } from "vue";
 import { useDisplay } from "vuetify";
 import { getTaskStatusColor } from "@/utils/getTaskStatusColor";
+import { useTasks } from "@/composables/taskComposable";
+import { getProjectStatusColor } from "@/utils/getProjectStatusColor";
 
 const { smAndDown } = useDisplay();
 const isMobile = smAndDown;
@@ -97,112 +157,7 @@ const headers = ref([
   },
 ]);
 
-const tasks = ref([
-  {
-    id: 1,
-    task_status: {
-      id: 3,
-      status: "On Hold",
-    },
-    task_name: "Test task",
-    start_date: "2025-01-01",
-    due_date: "2025-01-01",
-    completed_date: null,
-    project: {
-      id: 1,
-      project_name: "Growth Board",
-      project_status: {
-        id: 1,
-        status: "In Progress",
-      },
-      project_image: "image.jpg",
-      start_date: "2023-06-25",
-      due_date: "2023-07-09",
-      completed_date: null,
-      depth_in: 0.75,
-      width_in: 24,
-      height_in: 68,
-    },
-  },
-  {
-    id: 2,
-    task_status: {
-      id: 1,
-      status: "Not Started",
-    },
-    task_name: "Test task #2",
-    start_date: "2025-01-01",
-    due_date: "2025-01-01",
-    completed_date: null,
-    project: {
-      id: 1,
-      project_name: "Growth Board",
-      project_status: {
-        id: 1,
-        status: "In Progress",
-      },
-      project_image: "image.jpg",
-      start_date: "2023-06-25",
-      due_date: "2023-07-09",
-      completed_date: null,
-      depth_in: 0.75,
-      width_in: 24,
-      height_in: 68,
-    },
-  },
-  {
-    id: 3,
-    task_status: {
-      id: 2,
-      status: "In Progress",
-    },
-    task_name: "Test task #3",
-    start_date: "2025-01-01",
-    due_date: "2025-01-01",
-    completed_date: null,
-    project: {
-      id: 1,
-      project_name: "Growth Board",
-      project_status: {
-        id: 1,
-        status: "In Progress",
-      },
-      project_image: "image.jpg",
-      start_date: "2023-06-25",
-      due_date: "2023-07-09",
-      completed_date: null,
-      depth_in: 0.75,
-      width_in: 24,
-      height_in: 68,
-    },
-  },
-  {
-    id: 4,
-    task_status: {
-      id: 4,
-      status: "Completed",
-    },
-    task_name: "Test task #4",
-    start_date: "2025-01-01",
-    due_date: "2025-01-01",
-    completed_date: null,
-    project: {
-      id: 1,
-      project_name: "Growth Board",
-      project_status: {
-        id: 1,
-        status: "In Progress",
-      },
-      project_image: "image.jpg",
-      start_date: "2023-06-25",
-      due_date: "2023-07-09",
-      completed_date: null,
-      depth_in: 0.75,
-      width_in: 24,
-      height_in: 68,
-    },
-  },
-]);
+const { tasks, isLoading } = useTasks();
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
