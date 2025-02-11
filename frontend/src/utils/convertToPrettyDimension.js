@@ -1,5 +1,6 @@
 export function convertToPrettyDimension(decimalInches) {
-  if (typeof decimalInches !== "number" || decimalInches < 0) {
+  decimalInches = parseFloat(decimalInches);
+  if (isNaN(decimalInches) || decimalInches < 0) {
     throw new Error("Input must be a positive number.");
   }
 
