@@ -28,7 +28,7 @@
           <v-carousel-item
             v-for="(project, i) in projects"
             :key="i"
-            :src="placeholderImage"
+            :src="placeholderImage2"
             cover
           >
             <v-card width="100%" height="100%" variant="outlined"
@@ -51,7 +51,11 @@
                     ><v-col v-if="!isMobile"></v-col
                     ><v-col :cols="isMobile ? 4 : 2" class="bg-white"
                       ><v-img
-                        :src="placeholderImage2"
+                        :src="
+                          project.project_image
+                            ? project.project_image
+                            : placeholderImage
+                        "
                         height="100"
                         gradient="to top right, rgba(0,115,201,.33), rgba(25,32,72,.7)"
                       ></v-img
