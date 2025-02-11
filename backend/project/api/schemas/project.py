@@ -15,7 +15,7 @@ class ProjectOut(Schema):
         id (int): The id of the Project.  Required.
         project_name (str): The name of the poject. Required. Unique. 254 limit.
         project_status (ProjectStatusOut): A reference to a Project Status. Required.
-        project_image (Optional[HttpUrl]): An image for the project. Defaults to None.
+        project_image (Optional[str]): An image for the project. Defaults to None.
         start_date (Optional[date]): The date this project started. Defaults to None.
         due_date (Optional[date]): The date this project is due. Defaults to None.
         completed_date (Optional[date]): The date this project completed. Defaults to None.
@@ -27,7 +27,7 @@ class ProjectOut(Schema):
     id: int
     project_name: str
     project_status: ProjectStatusOut
-    project_image: Optional[HttpUrl] = None
+    project_image: Optional[str] = None
     start_date: Optional[date] = None
     due_date: Optional[date] = None
     completed_date: Optional[date] = None
