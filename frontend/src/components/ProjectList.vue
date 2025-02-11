@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card variant="outlined" :elevation="4" class="bg-secondary"
-      ><v-card-tile>Projects</v-card-tile>
+      ><v-card-title>Projects</v-card-title>
       <v-card-text
         ><v-data-table-server
           :headers="headers"
@@ -22,7 +22,7 @@
         >
         <v-carousel
           hide-delimiter-background
-          v-if="props.dash || isMobile"
+          v-if="(props.dash || isMobile) && !isLoading"
           height="300"
         >
           <v-carousel-item
@@ -34,7 +34,7 @@
             <v-card width="100%" height="100%" variant="outlined"
               ><v-card-title class="bg-white"
                 ><v-tooltip
-                  :text="project.project_status.status"
+                  :text="project.project_status.project_status"
                   location="top"
                 >
                   <template v-slot:activator="{ props }"
@@ -127,6 +127,7 @@ import { ref, defineProps, computed } from "vue";
 import { convertToPrettyDimension } from "@/utils/convertToPrettyDimension";
 import { getProjectStatusColor } from "@/utils/getProjectStatusColor";
 import { useDisplay } from "vuetify";
+import { useProjects } from "@/composables/projectComposable";
 
 const { smAndDown } = useDisplay();
 const isMobile = smAndDown;
@@ -157,36 +158,5 @@ const headers = ref([
   { title: "Completed", key: "completed_date", align: "center" },
 ]);
 
-const projects = ref([
-  {
-    id: 1,
-    project_name: "Growth Board",
-    project_status: {
-      id: 1,
-      status: "In Progress",
-    },
-    project_image: "image.jpg",
-    start_date: "2023-06-25",
-    due_date: "2023-07-09",
-    completed_date: null,
-    depth_in: 0.75,
-    width_in: 24,
-    height_in: 68,
-  },
-  {
-    id: 2,
-    project_name: "Busy Board",
-    project_status: {
-      id: 4,
-      status: "In Progress",
-    },
-    project_image: "image.jpg",
-    start_date: "2023-06-25",
-    due_date: "2023-07-09",
-    completed_date: null,
-    depth_in: 0.75,
-    width_in: 24,
-    height_in: 68,
-  },
-]);
+const { projects, isLoading } = useProjects();
 </script>

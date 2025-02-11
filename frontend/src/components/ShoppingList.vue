@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card variant="outlined" :elevation="4" class="bg-secondary"
-      ><v-card-tile>Shopping List</v-card-tile></v-card
+      ><v-card-title>Shopping List</v-card-title></v-card
     >
   </div>
 </template>

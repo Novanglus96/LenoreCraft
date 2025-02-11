@@ -6,7 +6,7 @@
       class="bg-secondary"
       v-if="!isMobile"
       :rounded="0"
-      ><v-card-tile>Tasks</v-card-tile
+      ><v-card-title>Tasks</v-card-title
       ><v-card-text
         ><v-data-table-server
           :headers="headers"
@@ -55,9 +55,7 @@
     ><v-card v-if="isMobile && props.dash" :rounded="0">
       <v-list class="blackboard" :rounded="0">
         <v-list-item v-for="task in tasks" :key="task.id">
-          <v-list-item-content>
-            <v-list-item-title>{{ task.task_name }}</v-list-item-title>
-          </v-list-item-content>
+          <v-list-item-title>{{ task.task_name }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-card>

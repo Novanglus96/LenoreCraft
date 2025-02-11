@@ -4,7 +4,7 @@
       <v-col class="rounded text-center"
         ><div>
           <v-card variant="outlined" :elevation="4" class="bg-secondary"
-            ><v-card-tile>Tools</v-card-tile></v-card
+            ><v-card-title>Tools</v-card-title></v-card
           >
         </div></v-col
       ></v-row
