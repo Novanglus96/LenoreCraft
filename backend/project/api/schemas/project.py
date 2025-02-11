@@ -27,7 +27,7 @@ class ProjectOut(Schema):
     id: int
     project_name: str
     project_status: ProjectStatusOut
-    project_image: HttpUrl = None
+    project_image: Optional[HttpUrl] = None
     start_date: Optional[date] = None
     due_date: Optional[date] = None
     completed_date: Optional[date] = None
