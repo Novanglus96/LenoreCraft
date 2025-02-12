@@ -23,7 +23,7 @@
         <v-carousel
           hide-delimiter-background
           v-if="(props.dash || isMobile) && !isLoading"
-          height="300"
+          height="330"
         >
           <v-carousel-item
             v-for="(project, i) in projects"
