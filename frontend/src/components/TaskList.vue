@@ -19,6 +19,8 @@
           hover
           class="blackboard"
           :rounded="0"
+          no-data-text="No tasks!"
+          loading-text="Loading tasks..."
           ><template v-slot:[`header.task_status.id`]
             ><v-icon icon="mdi-nail" size="x-small"></v-icon
           ></template>

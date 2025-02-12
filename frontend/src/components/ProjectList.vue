@@ -121,6 +121,19 @@
               ></v-card
             >
           </v-carousel-item>
+          <v-carousel-item
+            :key="-1"
+            :src="placeholderImage2"
+            cover
+            v-if="projects.length == 0"
+          >
+            <v-card width="100%" height="100%" variant="outlined"
+              ><v-card-text
+                class="text-primary font-weight-bold text-h5 font-italic"
+                >No Projects - Yet!</v-card-text
+              ></v-card
+            >
+          </v-carousel-item>
         </v-carousel>
       </v-card-text>
     </v-card>
