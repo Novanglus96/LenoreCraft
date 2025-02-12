@@ -70,50 +70,23 @@
             </v-tooltip>
           </template>
           <template v-slot:[`item.start_date`]="{ item }">
-            <v-tooltip text="Start Date" location="top">
-              <template v-slot:activator="{ props }"
-                ><v-icon
-                  icon="mdi-calendar-blank"
-                  color="white"
-                  v-bind="props"
-                  size="small"
-                ></v-icon>
-                {{ item.start_date ? item.start_date : "(none)" }}
-              </template>
-            </v-tooltip>
+            {{ item.start_date ? item.start_date : "(none)" }}
           </template>
           <template v-slot:[`item.due_date`]="{ item }">
-            <v-tooltip text="Due Date" location="top">
-              <template v-slot:activator="{ props }"
-                ><v-icon
-                  icon="mdi-calendar-alert"
-                  color="white"
-                  v-bind="props"
-                  size="small"
-                ></v-icon>
-                {{ item.due_date ? item.due_date : "(none)" }}
-              </template>
-            </v-tooltip>
+            {{ item.due_date ? item.due_date : "(none)" }}
           </template>
           <template v-slot:[`item.completed_date`]="{ item }">
-            <v-tooltip text="Completed Date" location="top">
-              <template v-slot:activator="{ props }"
-                ><v-icon
-                  icon="mdi-calendar-check"
-                  color="white"
-                  v-bind="props"
-                  size="small"
-                ></v-icon>
-                {{ item.completed_date ? item.completed_date : "(none)" }}
-              </template>
-            </v-tooltip>
+            {{ item.completed_date ? item.completed_date : "(none)" }}
           </template>
         </v-data-table-server></v-card-text
       ></v-card
-    ><v-card v-if="isMobile && props.dash && !isLoading" :rounded="0">
+    ><v-card v-if="isMobile && !isLoading" :rounded="0">
       <v-list class="blackboard" :rounded="0">
         <v-list-item v-for="task in tasks" :key="task.id">
           <v-list-item-title>{{ task.task_name }}</v-list-item-title>
+          <v-list-item-subtitle>{{
+            task.project ? task.project.project_name : "(none)"
+          }}</v-list-item-subtitle>
         </v-list-item>
       </v-list>
     </v-card>
