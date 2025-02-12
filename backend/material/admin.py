@@ -32,7 +32,7 @@ class MaterialStatusAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 class MaterialObjectAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = [
         "id",
-        "material_object_name",
+        "material_object_full_name",
         "thickness_in",
         "width_in",
         "length_in",
@@ -43,7 +43,7 @@ class MaterialObjectAdmin(ImportExportModelAdmin, admin.ModelAdmin):
         "store_price",
     ]
 
-    list_display_links = ["material_object_name"]
+    list_display_links = ["material_object_full_name"]
 
     ordering = ["id"]
 

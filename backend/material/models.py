@@ -79,9 +79,11 @@ class MaterialObject(models.Model):
         found. Defaults to None.
         store_bin (Optional[CharField]): The bin of the aisle. Defaults to None.
         store_price (Optional[DecimalField]): The price of this material object. Defaults to 0.00.
+        material_object_full_name (CharField): The full name of the object. Unique. Defaults to None.
+            Limit 512. On save, set to dimensions + wood species name + material_object_name
     """
 
-    material_object_name = models.CharField(max_length=254, unique=True)
+    material_object_name = models.CharField(max_length=254)
     thickness_in = models.DecimalField(
         max_digits=10, decimal_places=5, null=True, blank=True, default=None
     )
@@ -110,13 +112,34 @@ class MaterialObject(models.Model):
     store_price = models.DecimalField(
         max_digits=12, decimal_places=2, default=0.00, blank=True, null=True
     )
+    material_object_full_name = models.CharField(
+        max_length=512, unique=True, null=True, blank=True, default=None
+    )
+
+    def save(self, *args, **kwargs):
+        """
+        Override save method to compute material_full_name before saving.
+        """
+        dimensions = "x".join(
+            str(value)
+            for value in [self.thickness_in, self.width_in, self.length_in]
+            if value is not None
+        )
+        wood_species_name = (
+            self.wood_species.wood_species_name if self.wood_species else ""
+        )
+        components = filter(
+            None, [dimensions, wood_species_name, self.material_object_name]
+        )
+        self.material_object_full_name = " ".join(components)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         """
         Returns:
             (String): The Material Object Name
         """
-        return self.material_object_name
+        return self.material_object_full_name
 
 
 class Material(models.Model):

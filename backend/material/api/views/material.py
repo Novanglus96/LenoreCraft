@@ -154,7 +154,7 @@ def list_materials(request):
 
     try:
         qs = Material.objects.all().order_by(
-            "material_object.material_object_name"
+            "material_object__material_object_name"
         )
         return qs
     except Exception as e:

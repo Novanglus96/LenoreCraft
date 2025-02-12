@@ -22,8 +22,8 @@ class MaterialOut(Schema):
     id: int
     material_object: MaterialObjectOut
     quantity: int = 1
-    material_status: MaterialStatusOut = None
-    project: ProjectOut
+    material_status: Optional[MaterialStatusOut] = None
+    project: Optional[ProjectOut]
 
 
 # The class MaterialIn is a schema for validating Material information.

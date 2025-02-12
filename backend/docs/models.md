@@ -11,6 +11,10 @@
 ### ::: material.models.Material
 
 ### ::: material.models.MaterialObject
+        options:
+            members:
+                - save
+                - __str__
 
 ### ::: material.models.MaterialStatus
 
