@@ -38,10 +38,16 @@
                         height="100"
                         gradient="to top right, rgba(0,115,201,.33), rgba(25,32,72,.7)"
                       ></v-img
-                      ><span class="text-bold text-primary bg-white text-body-2"
-                        >{{ convertToPrettyDimension(project.width_in) }}W
-                        {{ convertToPrettyDimension(project.depth_in) }}D
-                        {{ convertToPrettyDimension(project.height_in) }}H</span
+                      ><span
+                        class="text-bold text-primary bg-white text-body-2"
+                        >{{
+                          convertToPrettyDimension(
+                            project.height_in,
+                            project.width_in,
+                            project.depth_in,
+                            false,
+                          )
+                        }}</span
                       ></v-col
                     ><v-col class="text-left" :cols="isMobile ? 8 : 6"
                       ><v-container

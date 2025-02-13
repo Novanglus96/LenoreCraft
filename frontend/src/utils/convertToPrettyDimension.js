@@ -1,4 +1,4 @@
-export function convertToPrettyDimension(decimalInches) {
+function convertToFraction(decimalInches) {
   decimalInches = parseFloat(decimalInches);
   if (isNaN(decimalInches) || decimalInches < 0) {
     throw new Error("Input must be a positive number.");
@@ -45,4 +45,47 @@ export function convertToPrettyDimension(decimalInches) {
   }
 
   return prettyDimension.trim();
+}
+
+export function convertToPrettyDimension(ht, w, ld, lumber = false) {
+  // If this is lumber, [Nominal Thickness] x [Nominal Width] x [Length] [Wood Type]
+  let dimensions = null;
+  let ht_str = null;
+  let w_str = null;
+  let ld_str = null;
+  if (ht) {
+    ht_str = convertToFraction(ht);
+  }
+  if (w) {
+    w_str = convertToFraction(w);
+  }
+  if (ld) {
+    ld_str = convertToFraction(ld);
+  }
+  if (lumber) {
+    if (ht_str) {
+      dimensions = ht_str + "x";
+    }
+    if (w_str) {
+      dimensions += w_str + "x";
+    }
+    if (ld_str) {
+      dimensions += ld_str;
+    }
+  } else {
+    if (ht_str) {
+      dimensions = ht_str + "x";
+    }
+    if (w_str) {
+      dimensions += w_str + "x";
+    }
+    if (ld_str) {
+      dimensions += ld_str;
+    }
+  }
+  if (!dimensions) {
+    dimensions = "(none)";
+  }
+  // If this is a finished product, 	Height x Width x Depth/Length
+  return dimensions;
 }
