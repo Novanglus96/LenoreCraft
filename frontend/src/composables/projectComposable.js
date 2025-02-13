@@ -31,9 +31,12 @@ function handleApiError(error, message) {
   throw error;
 }
 
-async function getProjectsFunction() {
+async function getProjectsFunction(dash) {
   try {
-    const response = await apiClient.get("/project/project/list");
+    if (!dash) {
+      dash = false;
+    }
+    const response = await apiClient.get("/project/project/list?dash=" + dash);
     return response.data;
   } catch (error) {
     handleApiError(error, "Projects not fetched: ");
@@ -79,11 +82,11 @@ async function updateProjectFunction(updatedProject) {
   }
 }
 
-export function useProjects() {
+export function useProjects(dash) {
   const queryClient = useQueryClient();
   const { data: projects, isLoading } = useQuery({
-    queryKey: ["projects"],
-    queryFn: () => getProjectsFunction(),
+    queryKey: ["projects", { dash: dash }],
+    queryFn: () => getProjectsFunction(dash),
     select: response => response,
     client: queryClient,
   });

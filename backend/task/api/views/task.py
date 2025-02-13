@@ -147,13 +147,23 @@ def list_tasks(request):
 
     Args:
         request (HttpRequest): The HTTP request object.
-
     Returns:
         (TaskOut): a list of Task objects
     """
 
     try:
-        qs = Task.objects.all().order_by("task_name")
+        qs = (
+            Task.objects.all()
+            .filter(task_status__id__lt=4)
+            .exclude(project__project_status__id__gte=3)
+            .order_by(
+                "task_status__id",
+                "due_date",
+                "project__project_status__id",
+                "project__due_date",
+                "task_name",
+            )
+        )
         return qs
     except Exception as e:
         # Log other types of exceptions

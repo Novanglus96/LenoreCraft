@@ -76,7 +76,18 @@
           <template v-slot:[`item.completed_date`]="{ item }">
             {{ item.completed_date ? item.completed_date : "(none)" }}
           </template>
-        </v-data-table-server></v-card-text
+        </v-data-table-server>
+        <v-list class="blackboard" :rounded="0" v-if="isMobile && !isLoading">
+          <v-list-item v-for="task in tasks" :key="task.id">
+            <v-list-item-title>{{ task.task_name }}</v-list-item-title>
+            <v-list-item-subtitle>{{
+              task.project ? task.project.project_name : "(none)"
+            }}</v-list-item-subtitle>
+          </v-list-item>
+          <v-list-item :key="-1" v-if="tasks.length == 0"
+            ><v-list-item-title>No Tasks!</v-list-item-title></v-list-item
+          >
+        </v-list></v-card-text
       ></v-card
     >
   </div>

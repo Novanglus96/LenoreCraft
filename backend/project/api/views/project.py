@@ -135,7 +135,7 @@ def get_project(request, project_id: int):
 
 
 @project_router.get("/list", response=List[ProjectOut])
-def list_projects(request):
+def list_projects(request, dash: bool = False):
     """
     The function `list_projects` retrieves a list of projects,
     ordered by project_name ascending.
@@ -147,13 +147,25 @@ def list_projects(request):
 
     Args:
         request (HttpRequest): The HTTP request object.
+        dash (bool): Filters projects that are not in progress
+            or on hold. Defaults to False.
 
     Returns:
         (ProjectOut): a list of Project objects
     """
 
     try:
-        qs = Project.objects.all().order_by("project_name")
+        qs = None
+        if dash:
+            qs = (
+                Project.objects.all()
+                .filter(project_status__id__lt=3)
+                .order_by("project_status__id", "due_date", "project_name")
+            )
+        else:
+            qs = Project.objects.all().order_by(
+                "project_status__id", "due_date", "project_name"
+            )
         return qs
     except Exception as e:
         # Log other types of exceptions

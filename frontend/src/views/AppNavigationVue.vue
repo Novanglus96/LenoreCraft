@@ -31,7 +31,9 @@
       <v-img :width="132" aspect-ratio="1/1" cover src="/logov2.png"></v-img>
     </template>
     <v-app-bar-title>
-      <span class="text-caption font-weight-bold">v0.0.004</span></v-app-bar-title
+      <span class="text-caption font-weight-bold"
+        >v0.0.004</span
+      ></v-app-bar-title
     >
   </v-app-bar>
 </template>
@@ -48,6 +50,14 @@ const menu_items = ref([
     tooltip: "Dashboard",
   },
   {
+    icon: "mdi-hand-saw",
+    color: "accent-darken-1",
+    basecolor: "primary",
+    to: "/projects",
+    title: "Projects",
+    tooltip: "Projects",
+  },
+  {
     icon: "mdi-screw-flat-top",
     color: "accent-darken-1",
     basecolor: "primary",
@@ -62,14 +72,6 @@ const menu_items = ref([
     to: "/shopping",
     title: "Shopping List",
     tooltip: "Shopping List",
-  },
-  {
-    icon: "mdi-hand-saw",
-    color: "accent-darken-1",
-    basecolor: "primary",
-    to: "/projects",
-    title: "Projects",
-    tooltip: "Projects",
   },
   {
     icon: "mdi-tape-measure",
