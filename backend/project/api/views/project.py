@@ -2,10 +2,7 @@ from ninja import Router, Query
 from django.db import IntegrityError
 from ninja.errors import HttpError
 from project.models import Project
-from project.api.schemas.project import (
-    ProjectIn,
-    ProjectOut,
-)
+from project.api.schemas.project import ProjectIn, ProjectOut, PaginatedProjects
 from django.shortcuts import get_object_or_404
 from typing import List
 from django.db.models import (
@@ -28,6 +25,7 @@ from django.db.models import (
 )
 from django.db.models.functions import Concat, Coalesce, Abs
 from typing import List, Optional, Dict, Any
+from administration.api.dependencies.paginate_list import paginate_list
 
 project_router = Router(tags=["Project"])
 
@@ -134,8 +132,13 @@ def get_project(request, project_id: int):
         raise HttpError(500, "Record retrieval error")
 
 
-@project_router.get("/list", response=List[ProjectOut])
-def list_projects(request, dash: bool = False):
+@project_router.get("/list", response=PaginatedProjects)
+def list_projects(
+    request,
+    page: Optional[int] = 1,
+    page_size: Optional[int] = 10,
+    dash: Optional[bool] = False,
+):
     """
     The function `list_projects` retrieves a list of projects,
     ordered by project_name ascending.
@@ -166,7 +169,19 @@ def list_projects(request, dash: bool = False):
             qs = Project.objects.all().order_by(
                 "project_status__id", "due_date", "project_name"
             )
-        return qs
+
+        # Paginate projects
+        paginated_list, total_records, total_pages = paginate_list(
+            qs, page_size, page
+        )
+        paginated_obj = PaginatedProjects(
+            projects=paginated_list,
+            current_page=page,
+            total_pages=total_pages,
+            total_records=total_records,
+        )
+
+        return paginated_obj
     except Exception as e:
         # Log other types of exceptions
         raise HttpError(500, "Record retrieval error")

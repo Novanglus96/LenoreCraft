@@ -5,6 +5,7 @@
             members:
                 - authenticate
 #### ::: administration.api.dependencies.current_date.current_date
+#### ::: administration.api.dependencies.paginate_list.paginate_list
 
 ### Views
 #### ::: administration.api.views.version.list_version
@@ -83,6 +84,7 @@
 #### ::: project.api.views.project.list_projects
 #### ::: project.api.views.project.update_project
 ### Schemas
+#### ::: project.api.schemas.project.PaginatedProjects
 #### ::: project.api.schemas.project.ProjectIn
 #### ::: project.api.schemas.project.ProjectOut
 #### ::: project.api.schemas.project_phase.ProjectPhaseOut

@@ -5,7 +5,7 @@
       <v-card-text
         ><v-carousel hide-delimiter-background v-if="!isLoading" height="330">
           <v-carousel-item
-            v-for="(project, i) in projects"
+            v-for="(project, i) in projects.projects"
             :key="i"
             :src="placeholderImage2"
             cover
@@ -110,7 +110,7 @@
             :key="-1"
             :src="placeholderImage2"
             cover
-            v-if="projects.length == 0"
+            v-if="projects.projects.length == 0"
           >
             <v-card width="100%" height="100%" variant="outlined"
               ><v-card-text
@@ -125,15 +125,16 @@
   </div>
 </template>
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { convertToPrettyDimension } from "@/utils/convertToPrettyDimension";
 import { getProjectStatusColor } from "@/utils/getProjectStatusColor";
 import { useDisplay } from "vuetify";
 import { useProjects } from "@/composables/projectComposable";
+import { useMainStore } from "@/stores/main";
 
 const { smAndDown } = useDisplay();
 const isMobile = smAndDown;
-
+const mainstore = useMainStore();
 const placeholderImage = computed(
   () => new URL("@/assets/placeholder.webp", import.meta.url).href,
 );
@@ -143,4 +144,12 @@ const placeholderImage2 = computed(
 );
 
 const { projects, isLoading } = useProjects(true);
+
+onMounted(() => {
+  mainstore.updatePagination({
+    page: 1,
+    page_size: 0,
+    dash: true,
+  });
+});
 </script>

@@ -60,3 +60,20 @@ class ProjectIn(Schema):
     depth_in: Decimal = Field(whole_digits=10, decimal_places=5, default=None)
     width_in: Decimal = Field(whole_digits=10, decimal_places=5, default=None)
     height_in: Decimal = Field(whole_digits=10, decimal_places=5, default=None)
+
+
+class PaginatedProjects(Schema):
+    """
+    Schema to provide a paginated list of ProjectOut.
+
+    Attributes:
+        projects (List[ProjectOut]): A list of ProjectOut. Required.
+        current_page (int): The current page returned. Required.
+        total_pages (int): The total number of pages. Required.
+        total_records (int): The total number of projects. Required.
+    """
+
+    projects: List[ProjectOut]
+    current_page: int
+    total_pages: int
+    total_records: int

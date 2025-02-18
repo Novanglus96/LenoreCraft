@@ -14,16 +14,28 @@
       <v-card-text
         ><v-data-table-server
           :headers="headers"
-          :items="projects ? projects : []"
-          :items-length="projects ? projects.length : 0"
-          :loading="isLoading"
+          :items="projects && projects.projects ? projects.projects : []"
+          :items-length="projects.total_records"
+          :loading="isActive"
           item-value="id"
-          items-per-page="5"
+          v-model:items-per-page="mainstore.projectlist_pagination.page_size"
+          :items-per-page-options="[
+            {
+              value: mainstore.projectlist_pagination.page_size,
+              title: mainstore.projectlist_pagination.page_size,
+            },
+            {
+              value: 2,
+              title: 2,
+            },
+          ]"
+          items-per-page-text="Projects per page"
           color="primary"
           hover
           class="bg-secondary"
           no-data-text="No projects!"
           loading-text="Loading projects..."
+          @update:options="loadProjects"
           v-if="!isMobile"
         >
           <template v-slot:[`header.project_name`]>
@@ -103,12 +115,15 @@
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { convertToPrettyDimension } from "@/utils/convertToPrettyDimension";
 import { getProjectStatusColor } from "@/utils/getProjectStatusColor";
 import { useDisplay } from "vuetify";
 import { useProjects } from "@/composables/projectComposable";
+import { useMainStore } from "@/stores/main";
+import { useQueryClient } from "@tanstack/vue-query";
 
+const mainstore = useMainStore();
 const { smAndDown } = useDisplay();
 const isMobile = smAndDown;
 
@@ -136,5 +151,28 @@ const headers = ref([
   },
 ]);
 
-const { projects, isLoading } = useProjects(false);
+const { projects, isLoading, isFetching } = useProjects();
+
+const queryClient = useQueryClient();
+
+const loadProjects = ({ page, itemsPerPage }) => {
+  mainstore.updatePagination({
+    page: page,
+    page_size: itemsPerPage,
+    dash: false,
+  });
+  queryClient.invalidateQueries({ queryKey: ["projects"] });
+};
+
+const isActive = computed(
+  () => !(isLoading.value === false && isFetching.value === false),
+);
+
+onMounted(() => {
+  mainstore.updatePagination({
+    page: 1,
+    page_size: 10,
+    dash: false,
+  });
+});
 </script>

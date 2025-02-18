@@ -1,4 +1,9 @@
-import { useQuery, useQueryClient, useMutation } from "@tanstack/vue-query";
+import {
+  useQuery,
+  useQueryClient,
+  useMutation,
+  keepPreviousData,
+} from "@tanstack/vue-query";
 import axios from "axios";
 import { useMainStore } from "@/stores/main";
 
@@ -31,12 +36,16 @@ function handleApiError(error, message) {
   throw error;
 }
 
-async function getProjectsFunction(dash) {
+async function getProjectsFunction(pagination) {
   try {
-    if (!dash) {
-      dash = false;
-    }
-    const response = await apiClient.get("/project/project/list?dash=" + dash);
+    const response = await apiClient.get(
+      "/project/project/list?dash=" +
+        pagination.dash +
+        "&page=" +
+        pagination.page +
+        "&page_size=" +
+        pagination.page_size,
+    );
     return response.data;
   } catch (error) {
     handleApiError(error, "Projects not fetched: ");
@@ -82,11 +91,17 @@ async function updateProjectFunction(updatedProject) {
   }
 }
 
-export function useProjects(dash) {
+export function useProjects() {
   const queryClient = useQueryClient();
-  const { data: projects, isLoading } = useQuery({
-    queryKey: ["projects", { dash: dash }],
-    queryFn: () => getProjectsFunction(dash),
+  const mainstore = useMainStore();
+  const {
+    data: projects,
+    isLoading,
+    isFetching,
+  } = useQuery({
+    queryKey: ["projects", mainstore.projectlist_pagination],
+    queryFn: () => getProjectsFunction(mainstore.projectlist_pagination),
+    placeholderData: keepPreviousData,
     select: response => response,
     client: queryClient,
   });
@@ -126,6 +141,7 @@ export function useProjects(dash) {
 
   return {
     isLoading,
+    isFetching,
     projects,
     addProject,
     editProject,
