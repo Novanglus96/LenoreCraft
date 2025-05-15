@@ -221,13 +221,13 @@ Project Link: [https://github.com/Novanglus96/LenoreCraft](https://github.com/No
 [contributors-shield]: https://img.shields.io/github/contributors/Novanglus96/LenoreCraft.svg?style=for-the-badge
 [contributors-url]: https://github.com/Novanglus96/LenoreCraft/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Novanglus96/LenoreCraft.svg?style=for-the-badge
-[forks-url]: https://img.shields.io/github/forks/Novanglus96/LenoreCraft
+[forks-url]: https://github.com/Novanglus96/LenoreCraft/forks
 [stars-shield]: https://img.shields.io/github/stars/Novanglus96/LenoreCraft.svg?style=for-the-badge
-[stars-url]: https://img.shields.io/github/stars/Novanglus96/LenoreCraft
+[stars-url]: https://github.com/Novanglus96/LenoreCraft/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Novanglus96/LenoreCraft.svg?style=for-the-badge
 [issues-url]: https://github.com/Novanglus96/LenoreCraft/issues
 [license-shield]: https://img.shields.io/github/license/Novanglus96/LenoreCraft.svg?style=for-the-badge
-[license-url]: https://github.com/Novanglus96/LenoreCraft/blob/master/LICENSE.txt
+[license-url]: https://github.com/Novanglus/LenoreCraft/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/johnmadamsjr
 [product-screenshot]: images/screenshot.png
