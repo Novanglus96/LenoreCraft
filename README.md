@@ -226,7 +226,7 @@ Project Link: [https://github.com/Novanglus96/LenoreCraft](https://github.com/No
 [stars-url]: https://github.com/Novanglus96/LenoreCraft/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Novanglus96/LenoreCraft?style=for-the-badge
 [issues-url]: https://github.com/Novanglus96/LenoreCraft/issues
-[license-shield]: https://img.shields.io/github/license/Novanglus96/LenoreCraft?style=for-the-badge
+[license-shield]: https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge
 [license-url]: https://github.com/Novanglus96/LenoreCraft/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/johnmadamsjr
