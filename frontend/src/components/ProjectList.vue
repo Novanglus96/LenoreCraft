@@ -38,6 +38,11 @@
           @update:options="loadProjects"
           v-if="!isMobile"
         >
+          <template #footer>
+            <div class="d-flex justify-end">
+              <v-pagination v-model="page" :length="totalPages" />
+            </div>
+          </template>
           <template v-slot:[`header.project_name`]>
             <div class="font-weight-bold">Project Name</div>
           </template>
