@@ -141,40 +141,63 @@ Adjust these values according to your environment and application requirements.
 Create a `docker-compose.yml` file in the root directory of the project. Below is an example configuration:
 
 ```yaml
-version: '3.8'
-
 services:
-  app:
-    image: your-docker-image
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8000:8000"
+  frontend:
+    image: novanglus96/lenorecraft_frontend:latest
+    container_name: lenorecraft_frontend
+    networks:
+      - lenorecraft
+    restart: unless-stopped
+    expose:
+      - 80
     env_file:
-      - .env
+      - ./.env
+  backend:
+    image: novanglus96/lenorecraft_backend:latest
+    container_name: lenorecraft_backend
+    command: /home/app/web/start.sh
+    volumes:
+      - lenorecraft_static_volume:/home/app/web/staticfiles
+      - lenorecraft_media_volume:/home/app/web/mediafiles
+    expose:
+      - 8000
     depends_on:
       - db
-      - redis
-
+    networks:
+      - lenorecraft
+    env_file:
+      - ./.env
   db:
     image: postgres:15
-    environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
+    container_name: lenorecraft_db
     volumes:
-      - db_data:/var/lib/postgresql/data
-    restart: always
+      - lenorecraft_postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env.db
+    networks:
+      - lenorecraft
+  nginx:
+    image: novanglus96/lenoreapps_proxy:latest
+    container_name: lenorecraft_nginx
+    volumes:
+      - lenorecraft_static_volume:/home/app/web/staticfiles
+      - lenorecraft_media_volume:/home/app/web/mediafiles
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - lenorecraft
 
-  redis:
-    image: redis:7
-    ports:
-      - "6379:6379"
-    restart: always
+networks:
+  lenorecraft:
 
 volumes:
-  db_data:
+  lenorecraft_postgres_data:
+    external: true
+  lenorecraft_static_volume:
+    external: true
+  lenorecraft_media_volume:
+    external: true
 ```
 
 ### Step 3: Run the Application
