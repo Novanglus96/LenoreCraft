@@ -81,7 +81,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]
+Screenshots - COMING SOON
+<!--[![Product Name Screen Shot][product-screenshot]]-->
 
 This project evolved as a way to keep track of my woodworking projects and all the parts/cuts needed to complete them.
 
