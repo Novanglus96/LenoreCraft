@@ -278,9 +278,14 @@ A heartfelt thanks to our Patrons for their generous support! Your contributions
 
 ### ⭐ Thank You to Our Supporters:
 
-![Supporter Badge](https://img.shields.io/badge/Supporter-Patron%20Name%201-blue)  
-![Supporter Badge](https://img.shields.io/badge/Supporter-Patron%20Name%202-green)  
-![Supporter Badge](https://img.shields.io/badge/Supporter-Patron%20Name%203-red)
+#### 🥇 Gold Tier Supporters:
+![Gold Supporter Badge](https://img.shields.io/badge/Gold%20Tier-John%20Doe-gold?style=for-the-badge&logo=star)
+
+#### 🥈 Silver Tier Supporters:
+![Silver Supporter Badge](https://img.shields.io/badge/Silver%20Tier-Jane%20Smith-silver?style=for-the-badge&logo=medal)
+
+#### 🥉 Bronze Tier Supporters:
+![Bronze Supporter Badge](https://img.shields.io/badge/Bronze%20Tier-Bob%20Johnson-bronze?style=for-the-badge&logo=award)
 
 Want to see your name here? Support us on [Patreon](https://www.patreon.com/novanglus) to join our amazing community and shape the future of LenoreCraft!
 
