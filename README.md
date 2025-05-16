@@ -270,15 +270,17 @@ Project Link: [https://github.com/Novanglus96/LenoreCraft](https://github.com/No
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+## Acknowledgements
 
-A special thanks to our Patrons for supporting this project! Your contributions make it possible for us to continue improving and maintaining this application.
+A heartfelt thanks to our Patrons for their generous support! Your contributions help us maintain and improve this project.
 
-Thank You to Our Supporters:
+### ⭐ Thank You to Our Supporters:
 
-* []() Eleanor
+![Supporter Badge](https://img.shields.io/badge/Supporter-Patron%20Name%201-blue)  
+![Supporter Badge](https://img.shields.io/badge/Supporter-Patron%20Name%202-green)  
+![Supporter Badge](https://img.shields.io/badge/Supporter-Patron%20Name%203-red)
 
-Want to see your name here? Consider supporting us on Patreon to join our amazing community and help shape the future of LenoreCraft!
+Want to see your name here? Support us on [Patreon](https://www.patreon.com/novanglus) to join our amazing community and shape the future of LenoreCraft!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
