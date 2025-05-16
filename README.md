@@ -117,26 +117,39 @@ Make sure you have the following installed on your system:
 Create a `.env` file in the root directory of the project. This file will store environment variables required to run the application. Below is an example of the variables you need to define:
 
 ```env
-# Database configuration
-DB_HOST=db
-DB_PORT=5432
-DB_NAME=my_database
-DB_USER=my_user
-DB_PASSWORD=my_password
-
-# Application settings
-APP_ENV=production
-APP_DEBUG=false
-APP_SECRET=your_secret_key_here
-
-# Other configurations
-REDIS_HOST=redis
-REDIS_PORT=6379
+DEBUG=0
+SECRET_KEY=mysupersecretkey
+DJANGO_ALLOWED_HOSTS=localhost
+CSRF_TRUSTED_ORIGINS=http://localhost
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=lenorecraft
+SQL_USER=lenorecraftuser
+SQL_PASSWORD=somepassword
+SQL_HOST=db
+SQL_PORT=5432
+DATABASE=postgres
+DJANGO_SUPERUSER_PASSWORD=suepervisorpassword
+DJANGO_SUPERUSER_EMAIL=someone@somewhere.com
+DJANGO_SUPERUSER_USERNAME=supervisor
+VITE_API_KEY=someapikey
+TIMEZONE=America/New_York
 ```
 
 Adjust these values according to your environment and application requirements.
 
-### Step 2: Create a `docker-compose.yml` File
+### Step 2: Create a `.env.db` File
+
+Create a `.env.db` file in the root directory of the project. This file will store environment variables required to run the application. Below is an example of the variables you need to define:
+
+```env
+POSTGRES_USER=lenorecraftuser
+POSTGRES_PASSWORD=somepassword
+POSTGRES_DB=lenorecraft
+```
+
+Make sure these match the settings in .env file!
+
+### Step 3: Create a `docker-compose.yml` File
 
 Create a `docker-compose.yml` file in the root directory of the project. Below is an example configuration:
 
@@ -179,6 +192,8 @@ services:
   nginx:
     image: novanglus96/lenoreapps_proxy:latest
     container_name: lenorecraft_nginx
+    ports:
+      - "8080:80"
     volumes:
       - lenorecraft_static_volume:/home/app/web/staticfiles
       - lenorecraft_media_volume:/home/app/web/mediafiles
@@ -200,26 +215,19 @@ volumes:
     external: true
 ```
 
-### Step 3: Run the Application
+### Step 4: Run the Application
 
-1. Build and start the services:
-
-   ```bash
-   docker-compose up --build
-   ```
-
-2. Access the application in your browser at `http://localhost:8000`.
-
-3. Monitor logs to ensure all services start correctly:
+1. Start the services:
 
    ```bash
-   docker-compose logs -f
+   docker compose up -d
    ```
+
+2. Access the application in your browser at `http://localhost:8080`.
 
 ### Notes
 
-* Make sure to replace `your-docker-image` with the actual Docker image name.
-* Adjust exposed ports (e.g., `8000`, `6379`) as needed for your environment.
+* Adjust exposed ports as needed for your environment.
 * If you encounter any issues, ensure your `.env` file has the correct values and your Docker and Docker Compose installations are up to date.
 
 Enjoy using LenoreCraft!
