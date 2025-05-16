@@ -32,7 +32,7 @@
     </template>
     <v-app-bar-title>
       <span class="text-caption font-weight-bold"
-        >v0.0.005</span
+        >v0.0.006</span
       ></v-app-bar-title
     >
   </v-app-bar>
