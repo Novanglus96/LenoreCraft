@@ -269,14 +269,16 @@ Project Link: [https://github.com/Novanglus96/LenoreCraft](https://github.com/No
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []() John Adams
-* []()
-* []()
+A special thanks to our Patrons for supporting this project! Your contributions make it possible for us to continue improving and maintaining this application.
+
+Thank You to Our Supporters:
+
+* []() Eleanor
+
+Want to see your name here? Consider supporting us on Patreon to join our amazing community and help shape the future of LenoreCraft!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
