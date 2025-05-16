@@ -315,8 +315,9 @@ A heartfelt thanks to our Patrons for their generous support! Your contributions
 
 ### ⭐ Thank You to Our Supporters:
 
-![Gold Supporter Badge](https://img.shields.io/badge/Gold-Eleanor-gold?style=for-the-badge&logo=star)
-![Silver Supporter Badge](https://img.shields.io/badge/Silver-Jane%20Smith-silver?style=for-the-badge&logo=medal)
+![Gold Supporter Badge](https://img.shields.io/badge/Eleanor-gold?style=for-the-badge&logo=patreon&logoColor=gray)
+![Silver Supporter Badge](https://img.shields.io/badge/Jane_Smith-silver?style=for-the-badge&logo=patreon&logoColor=gray)
+![BuyMeACoffee Supporter Badge](https://img.shields.io/badge/Jane_Smith-white?style=for-the-badge&logo=buymeacoffee&logoColor=black)
 
 Want to see your name here? Support us on [Patreon](https://www.patreon.com/novanglus) to join our amazing community and shape the future of LenoreCraft!
 
