@@ -112,6 +112,7 @@ Make sure you have the following installed on your system:
 * [Docker](https://www.docker.com/get-started)
 * [Docker Compose](https://docs.docker.com/compose/install/)
 
+<!-- INSTALLATION -->
 ### Step 1: Create a `.env` File
 
 Create a `.env` file in the root directory of the project. This file will store environment variables required to run the application. Below is an example of the variables you need to define:
@@ -246,10 +247,14 @@ Enjoy using LenoreCraft!
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] Projects
+    - [ ] Cut Lists
+    - [ ] Materials
+- [ ] Tasks
+- [ ] Shopping List
+    - [ ] Grouped By Store
+- [ ] Tools
+    - [ ] Board Feet Calculator
 
 See the [open issues](https://github.com/Novanglus96/LenoreCraft/issues) for a full list of proposed features (and known issues).
 
