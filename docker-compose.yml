@@ -10,8 +10,8 @@ services:
     restart: unless-stopped
     ports:
       - 8081:5173
-    image: craft_frontend:development
-    container_name: craft_frontend_dev
+    image: lenorecraft_frontend:development
+    container_name: lenorecraft_frontend_dev
     volumes:
       - ./frontend:/app
     environment:
@@ -39,8 +39,8 @@ services:
       - db
     networks:
       - default
-    image: craft_backend:development
-    container_name: craft_backend_dev
+    image: lenorecraft_backend:development
+    container_name: lenorecraft_backend_dev
   db:
     image: postgres:15
     volumes:
@@ -49,7 +49,7 @@ services:
       - ./.env.dev.db
     networks:
       - default
-    container_name: craft_db_dev
+    container_name: lenorecraft_db_dev
     environment:
       - TZ=UTC
 

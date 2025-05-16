@@ -8,8 +8,8 @@ services:
     restart: unless-stopped
     expose:
       - 80
-    image: craft_frontend:production
-    container_name: craft_frontend
+    image: lenorecraft_frontend:production
+    container_name: lenorecraft_frontend
     env_file:
       - ./.env
     environment:
@@ -31,8 +31,8 @@ services:
       - default
     env_file:
       - ./.env
-    image: craft_backend:production
-    container_name: craft_backend
+    image: lenorecraft_backend:production
+    container_name: lenorecraft_backend
   db:
     image: postgres:15
     volumes:
@@ -41,7 +41,7 @@ services:
       - ./.env.db
     networks:
       - default
-    container_name: craft_db
+    container_name: lenorecraft_db
     environment:
       - TZ=UTC
   nginx:
@@ -56,7 +56,7 @@ services:
       - default
     ports:
       - 7000:80
-    container_name: craft_proxy
+    container_name: lenorecraft_proxy
     environment:
       - TZ=${TIMEZONE}
 
