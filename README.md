@@ -265,6 +265,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
+John Adams - Lenore.Apps@gmail.com
+
 Project Link: [https://github.com/Novanglus96/LenoreCraft](https://github.com/Novanglus96/LenoreCraft)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
