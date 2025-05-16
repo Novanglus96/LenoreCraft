@@ -42,8 +42,6 @@
     <a href="https://github.com/Novanglus96/LenoreCraft"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Novanglus96/LenoreCraft">View Demo</a>
-    ·
     <a href="https://github.com/Novanglus96/LenoreCraft/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
     <a href="https://github.com/Novanglus96/LenoreCraft/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
@@ -83,10 +81,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]]
 
-A bit aboout this project.
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `Novanglus96`, `LenoreCraft`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `LenoreCraft`, `project_description`
+This project evolved as a way to keep track of my woodworking projects and all the parts/cuts needed to complete them.
+
+It probably can be expanded to use for general crafting projects but it's main purpose was geared towards woodworking.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -96,40 +95,111 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 * [![Django][Django]][Django-url]
 * [![Vue][Vue.js]][Vue-url]
+* [![Docker][Docker]][Docker-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Welcome to LenoreCraft! This guide will help you set up and run the application using Docker and Docker Compose.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Make sure you have the following installed on your system:
 
-### Installation
+* [Docker](https://www.docker.com/get-started)
+* [Docker Compose](https://docs.docker.com/compose/install/)
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/Novanglus96/LenoreCraft.git
+### Step 1: Create a `.env` File
+
+Create a `.env` file in the root directory of the project. This file will store environment variables required to run the application. Below is an example of the variables you need to define:
+
+```env
+# Database configuration
+DB_HOST=db
+DB_PORT=5432
+DB_NAME=my_database
+DB_USER=my_user
+DB_PASSWORD=my_password
+
+# Application settings
+APP_ENV=production
+APP_DEBUG=false
+APP_SECRET=your_secret_key_here
+
+# Other configurations
+REDIS_HOST=redis
+REDIS_PORT=6379
+```
+
+Adjust these values according to your environment and application requirements.
+
+### Step 2: Create a `docker-compose.yml` File
+
+Create a `docker-compose.yml` file in the root directory of the project. Below is an example configuration:
+
+```yaml
+version: '3.8'
+
+services:
+  app:
+    image: your-docker-image
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: always
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+    restart: always
+
+volumes:
+  db_data:
+```
+
+### Step 3: Run the Application
+
+1. Build and start the services:
+
+   ```bash
+   docker-compose up --build
    ```
-3. Install NPM packages
-   ```sh
-   npm install
+
+2. Access the application in your browser at `http://localhost:8000`.
+
+3. Monitor logs to ensure all services start correctly:
+
+   ```bash
+   docker-compose logs -f
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+
+### Notes
+
+* Make sure to replace `your-docker-image` with the actual Docker image name.
+* Adjust exposed ports (e.g., `8000`, `6379`) as needed for your environment.
+* If you encounter any issues, ensure your `.env` file has the correct values and your Docker and Docker Compose installations are up to date.
+
+Enjoy using LenoreCraft!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -137,10 +207,6 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -208,7 +274,7 @@ Project Link: [https://github.com/Novanglus96/LenoreCraft](https://github.com/No
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
+* []() John Adams
 * []()
 * []()
 
@@ -249,3 +315,5 @@ Project Link: [https://github.com/Novanglus96/LenoreCraft](https://github.com/No
 [JQuery-url]: https://jquery.com 
 [Django]: https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white
 [Django-url]: https://www.djangoproject.com/
+[Docker]: https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white
+[Docker-url]: https://www.docker.com/
