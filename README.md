@@ -248,13 +248,14 @@ Enjoy using LenoreCraft!
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Projects
+- [ ] Projects
 - [ ] Part Lists
 - [ ] Material Lists
 - [ ] Tasks
 - [ ] Shopping List
 - [ ] Tools
     - [ ] Board Feet Calculator
+- [ ] Simplify Setup - Single .env file
 
 See the [open issues](https://github.com/Novanglus96/LenoreCraft/issues) for a full list of proposed features (and known issues).
 
