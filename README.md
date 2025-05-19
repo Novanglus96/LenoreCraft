@@ -248,12 +248,11 @@ Enjoy using LenoreCraft!
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Projects
-    - [ ] Cut Lists
-    - [ ] Materials
+- [x] Projects
+- [ ] Part Lists
+- [ ] Material Lists
 - [ ] Tasks
 - [ ] Shopping List
-    - [ ] Grouped By Store
 - [ ] Tools
     - [ ] Board Feet Calculator
 
