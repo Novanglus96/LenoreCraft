@@ -8,6 +8,7 @@ my_accounts.json
 my_tags.json
 my_banks.json
 backups
+.vite/
 
 # ---> Python
 # Byte-compiled / optimized / DLL files
