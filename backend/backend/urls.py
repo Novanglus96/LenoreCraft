@@ -38,7 +38,7 @@ from task.api.routers.task import task_router
 
 api = NinjaAPI(auth=GlobalAuth())
 api.title = "LenoreCraft API"
-api.version = "0.0.8"
+api.version = "0.0.9"
 api.description = "API documentation for LenoreCraft"
 
 # Add routers to the API
