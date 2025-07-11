@@ -31,60 +31,58 @@
       <v-img :width="132" aspect-ratio="1/1" cover src="/logov2.png"></v-img>
     </template>
     <v-app-bar-title>
-      <span class="text-caption font-weight-bold"
-        >v0.0.006</span
-      ></v-app-bar-title
-    >
+      <span class="text-caption font-weight-bold">v0.0.7</span>
+    </v-app-bar-title>
   </v-app-bar>
 </template>
 <script setup>
-import { ref } from "vue";
+  import { ref } from "vue";
 
-const menu_items = ref([
-  {
-    icon: "mdi-toolbox",
-    color: "accent-darken-1",
-    basecolor: "primary",
-    to: "/",
-    title: "Dashboard",
-    tooltip: "Dashboard",
-  },
-  {
-    icon: "mdi-hand-saw",
-    color: "accent-darken-1",
-    basecolor: "primary",
-    to: "/projects",
-    title: "Projects",
-    tooltip: "Projects",
-  },
-  {
-    icon: "mdi-screw-flat-top",
-    color: "accent-darken-1",
-    basecolor: "primary",
-    to: "/tasks",
-    title: "Tasks",
-    tooltip: "Tasks",
-  },
-  {
-    icon: "mdi-wheel-barrow",
-    color: "accent-darken-1",
-    basecolor: "primary",
-    to: "/shopping",
-    title: "Shopping List",
-    tooltip: "Shopping List",
-  },
-  {
-    icon: "mdi-tape-measure",
-    color: "accent-darken-1",
-    basecolor: "primary",
-    to: "/tools",
-    title: "Tools",
-    tooltip: "Tools",
-  },
-]);
+  const menu_items = ref([
+    {
+      icon: "mdi-toolbox",
+      color: "accent-darken-1",
+      basecolor: "primary",
+      to: "/",
+      title: "Dashboard",
+      tooltip: "Dashboard",
+    },
+    {
+      icon: "mdi-hand-saw",
+      color: "accent-darken-1",
+      basecolor: "primary",
+      to: "/projects",
+      title: "Projects",
+      tooltip: "Projects",
+    },
+    {
+      icon: "mdi-screw-flat-top",
+      color: "accent-darken-1",
+      basecolor: "primary",
+      to: "/tasks",
+      title: "Tasks",
+      tooltip: "Tasks",
+    },
+    {
+      icon: "mdi-wheel-barrow",
+      color: "accent-darken-1",
+      basecolor: "primary",
+      to: "/shopping",
+      title: "Shopping List",
+      tooltip: "Shopping List",
+    },
+    {
+      icon: "mdi-tape-measure",
+      color: "accent-darken-1",
+      basecolor: "primary",
+      to: "/tools",
+      title: "Tools",
+      tooltip: "Tools",
+    },
+  ]);
 </script>
 <style>
-.hover-theme:hover {
-  background-color: #ffe480;
-}
+  .hover-theme:hover {
+    background-color: #ffe480;
+  }
 </style>
