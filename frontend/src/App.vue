@@ -56,7 +56,7 @@ const { prefetchVersion, version } = useVersion();
 const showBanner = ref(false);
 
 const checkVersion = computed(() => {
-  return version.value && version.value.version_number !== "0.0.006";
+  return version.value && version.value.version_number !== "0.0.7";
 });
 
 const updateBanner = () => {
