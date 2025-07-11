@@ -4,18 +4,30 @@ site_author: John Adams
 copyright: 2025 John Adams
 nav:
   - Home: index.md
-  - About: about.md
   - Reference:
       - Models: models.md
       - API: api.md
 theme:
   name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
 plugins:
   - search
   - mkdocstrings:
       handlers:
         python:
-          docstring_style: google
+          #docstring_style: google
           options:
             show_root_heading: true
             show_root_full_path: false
@@ -24,8 +36,8 @@ plugins:
             show_defaults: true
             members:
               - __str__
-          rendering:
-            show_defaults: true
+          #rendering:
+          #  show_defaults: true
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
