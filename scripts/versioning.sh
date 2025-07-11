@@ -6,7 +6,7 @@ FRONTEND_DOCKER_FILE="frontend/Dockerfile"
 MODEL_VERSION_FILE="backend/administration/fixtures/version.json"
 API_PY_FILE="backend/backend/urls.py"
 PACKAGE_JSON_FILE="frontend/package.json"
-APPNAVIGATION_VUE_FILE="frontend/src/views/AppNavigation.vue"
+APPNAVIGATION_VUE_FILE="frontend/src/views/AppNavigationVue.vue"
 APP_VUE_FILE="frontend/src/App.vue"
 
 # Ensure the version file exists
