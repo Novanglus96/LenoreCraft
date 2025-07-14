@@ -10,7 +10,11 @@ else
 fi
 
 # Load environment variables from .env file
-sed -i "s|__VITE_API_KEY__|${VITE_API_KEY}|g" /usr/share/nginx/html/index.html
+cat <<EOF > /usr/share/nginx/html/config.js
+window.__APP_CONFIG__ = {
+  VITE_API_KEY: "${VITE_API_KEY}"
+};
+EOF
 
 # Execute the main process
 exec "$@"
