@@ -31,7 +31,7 @@
       <v-img :width="132" aspect-ratio="1/1" cover src="/logov2.png"></v-img>
     </template>
     <v-app-bar-title>
-      <span class="text-caption font-weight-bold">v0.0.11</span>
+      <span class="text-caption font-weight-bold">v0.0.12</span>
     </v-app-bar-title>
   </v-app-bar>
 </template>
