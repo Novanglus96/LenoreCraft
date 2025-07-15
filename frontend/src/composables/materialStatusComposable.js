@@ -1,6 +1,9 @@
 import { useQuery, useQueryClient } from "@tanstack/vue-query";
 import axios from "axios";
 import { useMainStore } from "@/stores/main";
+import { useApiKey } from "./ueApiKey";
+
+const apiKey = useApiKey();
 
 const apiClient = axios.create({
   baseURL: "/api/v1",
@@ -8,7 +11,7 @@ const apiClient = axios.create({
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
-    Authorization: `Bearer ${window.__APP_CONFIG__?.VITE_API_KEY}`,
+    Authorization: `Bearer ${apiKey}`,
   },
 });
 
