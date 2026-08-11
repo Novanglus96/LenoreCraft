@@ -1,0 +1,25 @@
+name: Build & Publish
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to build and publish (e.g. v0.1.0)"
+        required: true
+jobs:
+  build-publish:
+    uses: lenore/lenore-ci/.forgejo/workflows/build-publish.yml@v1
+    with:
+      tag: ${{ github.event.release.tag_name || inputs.tag }}
+      # LenoreCraft is still multi-container: frontend + backend are built here,
+      # db is stock postgres and nginx is the prebuilt
+      # novanglus96/lenoreapps_proxy image, so neither is ours to publish.
+      # build-publish reads the actual image names from `docker compose config`
+      # rather than assuming <repo>:production, which is why this works for a
+      # repo that does not follow that convention.
+      image_list: frontend,backend
+      push_dockerhub: true
+      push_forge: true
+      dry_run: false
+    secrets: inherit
