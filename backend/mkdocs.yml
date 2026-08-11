@@ -22,6 +22,10 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
+extra:
+  version:
+    provider: mike
+
 plugins:
   - search
   - mkdocstrings:
