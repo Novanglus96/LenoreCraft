@@ -18,7 +18,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "chmod +x scripts/update-version.sh && ./scripts/update-version.sh ${nextRelease.version}"
+        "prepareCmd": "chmod +x scripts/update-version.sh && ./scripts/update-version.sh ${nextRelease.version} && sed -i 's#https://forge\\.lan\\.danielleandjohn\\.love/lenore/LenoreCraft#https://github.com/Novanglus96/LenoreCraft#g' CHANGELOG.md"
       }
     ],
     [
