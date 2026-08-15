@@ -12,7 +12,7 @@ RUN npm run build
 # production stage
 FROM nginx:stable-alpine AS production-stage
 LABEL maintainer="John Adams"
-LABEL version="0.0.12"
+LABEL version="0.0.13"
 
 # Copy build artifacts
 COPY --from=build-stage /app/dist /usr/share/nginx/html
